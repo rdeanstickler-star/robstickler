@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f1f2f3;
+  --bg-elev: #e6e8ea;
+  --input: #ffffff;
+  --ink: #16181a;
+  --muted: #5c636a;
+  --line: #c8ccd0;
+  --accent: #c85a32;
+  --accent-ink: #fff8f4;
+}
+
+.dark {
+  --bg: #141618;
+  --bg-elev: #1c1f22;
+  --input: #101214;
+  --ink: #e6e8ea;
+  --muted: #8e949a;
+  --line: #2a2e32;
+  --accent: #c85a32;
+  --accent-ink: #fff8f4;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-input: var(--input);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-plex);
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 80%, black);
+  color: var(--accent-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-nav {
+    background: var(--bg) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
