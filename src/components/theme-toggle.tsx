@@ -1,35 +1,35 @@
 "use client";
 
 import { Moon, Sun } from "@phosphor-icons/react";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+function subscribe(onStoreChange: () => void) {
+  window.addEventListener("theme-change", onStoreChange);
+  return () => window.removeEventListener("theme-change", onStoreChange);
+}
+
+function getSnapshot(): "light" | "dark" {
+  const stored = localStorage.getItem("theme");
+  return stored === "light" ? "light" : "dark";
+}
+
+function getServerSnapshot(): "light" | "dark" {
+  return "dark";
+}
 
 function applyTheme(next: "light" | "dark") {
   document.documentElement.classList.toggle("dark", next === "dark");
   localStorage.setItem("theme", next);
+  window.dispatchEvent(new Event("theme-change"));
 }
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
-
-  useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    if (stored === "light" || stored === "dark") {
-      setTheme(stored);
-      return;
-    }
-    setTheme("dark");
-  }, []);
-
-  function toggle() {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    applyTheme(next);
-  }
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   return (
     <button
       type="button"
-      onClick={toggle}
+      onClick={() => applyTheme(theme === "dark" ? "light" : "dark")}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       className="grid size-9 place-items-center text-ink transition-transform active:scale-[0.96]"
     >

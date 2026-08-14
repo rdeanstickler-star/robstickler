@@ -3,13 +3,15 @@ import { getSiteUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
+const paths = ["/", "/artifacts", "/interests", "/studios", "/doorfront"];
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: getSiteUrl(),
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-  ];
+  const base = getSiteUrl();
+
+  return paths.map((path) => ({
+    url: path === "/" ? base : `${base}${path}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: path === "/" ? 1 : path === "/artifacts" ? 0.9 : 0.7,
+  }));
 }

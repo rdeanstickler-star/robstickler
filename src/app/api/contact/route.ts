@@ -52,7 +52,7 @@ export async function POST(request: Request) {
         from: "Rob Stickler site <onboarding@resend.dev>",
         to: [destination],
         reply_to: email,
-        subject: `Studio note from ${name}`,
+        subject: `Note from ${name}`,
         text: [`Name: ${name}`, `Email: ${email}`, `Studio: ${studio}`, "", message].join(
           "\n",
         ),
@@ -85,7 +85,7 @@ export async function POST(request: Request) {
         email,
         studio,
         message,
-        _subject: `Studio note from ${name}`,
+        _subject: `Note from ${name}`,
       }),
     });
 

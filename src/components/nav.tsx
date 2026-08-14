@@ -1,19 +1,17 @@
 "use client";
 
 import { List, X } from "@phosphor-icons/react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { routes } from "@/content/copy";
 import { site } from "@/lib/site";
 import { z } from "@/lib/z";
 
-const links = [
-  { href: "#work", label: "Work" },
-  { href: "#method", label: "Method" },
-  { href: "#about", label: "About" },
-];
-
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header
@@ -21,26 +19,26 @@ export function Nav() {
       style={{ zIndex: z.nav }}
     >
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:px-8">
-        <a href="#top" className="text-[15px] font-medium tracking-tight">
+        <Link href="/" className="text-[15px] font-medium tracking-tight">
           {site.name}
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-[14px] text-muted transition-colors hover:text-ink"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            className="text-[14px] font-medium text-ink transition-colors hover:text-accent"
-          >
-            {site.cta}
-          </a>
+          {routes.map((link) => {
+            const current = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={current ? "page" : undefined}
+                className={`text-[14px] transition-colors hover:text-ink ${
+                  current ? "font-medium text-ink" : "text-muted"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <ThemeToggle />
         </nav>
 
@@ -61,23 +59,20 @@ export function Nav() {
       {open ? (
         <div className="border-t border-line px-5 py-4 lg:hidden">
           <nav className="flex flex-col gap-3">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="py-1 text-[16px]"
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              className="py-1 text-[16px] font-medium"
-              onClick={() => setOpen(false)}
-            >
-              {site.cta}
-            </a>
+            {routes.map((link) => {
+              const current = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={current ? "page" : undefined}
+                  className={`py-1 text-[16px] ${current ? "font-medium" : ""}`}
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
         </div>
       ) : null}

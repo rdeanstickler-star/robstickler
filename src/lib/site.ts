@@ -1,9 +1,8 @@
 export const site = {
   name: "Rob Stickler",
-  title: "Rob Stickler, operator for wellness studios",
+  title: "Rob Stickler",
   description:
-    "I make wellness studios worth more. Retention, member experience, and operations for owners who already have the rooms.",
-  headline: "I make wellness studios worth more.",
+    "Operator. Twenty-three years running teams and P&L, now running AI systems that do the work.",
   linkedin: "https://www.linkedin.com/in/rob-stickler-1466b931",
   handle: "BadMojoNation",
   cta: "Start a conversation",

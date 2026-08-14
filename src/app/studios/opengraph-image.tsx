@@ -1,10 +1,10 @@
-import { hub } from "@/content/copy";
+import { studiosMeta } from "@/content/copy";
 import { ogContentType, ogSize, renderOgImage } from "@/lib/og";
 
-export const alt = hub.ogHeadline;
+export const alt = studiosMeta.ogHeadline;
 export const size = ogSize;
 export const contentType = ogContentType;
 
 export default function OpenGraphImage() {
-  return renderOgImage(hub.ogHeadline);
+  return renderOgImage(studiosMeta.ogHeadline);
 }

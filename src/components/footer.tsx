@@ -1,18 +1,39 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { identity } from "@/content/copy";
+import { isMailto } from "@/lib/email";
 import { site } from "@/lib/site";
 
 export function Footer() {
+  const pathname = usePathname();
+  const contactHref = pathname === "/studios" ? "/studios#contact" : "/#contact";
+
   return (
     <footer className="border-t border-line">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-4 px-5 py-8 md:flex-row md:items-center md:justify-between md:px-8">
         <p className="text-[14px] text-muted">{site.name}</p>
-        <a
-          href={site.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[14px] text-ink"
-        >
-          LinkedIn
-        </a>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[14px]">
+          <Link href={contactHref} className="text-ink">
+            {identity.conversation}
+          </Link>
+          {isMailto(identity.email) ? (
+            <a href={`mailto:${identity.email}`} className="text-ink">
+              {identity.email}
+            </a>
+          ) : (
+            <span className="text-muted">{identity.email}</span>
+          )}
+          <a
+            href={site.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ink"
+          >
+            {identity.linkedinLabel}
+          </a>
+        </div>
       </div>
     </footer>
   );

@@ -3,11 +3,12 @@
 import { ArrowUpRight } from "@phosphor-icons/react";
 import { useState, type FormEvent } from "react";
 import { Reveal } from "@/components/reveal";
+import { contactNeutral, identity, type ContactCopy } from "@/content/copy";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export function Contact() {
+export function Contact({ copy = contactNeutral }: { copy?: ContactCopy }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
@@ -46,9 +47,7 @@ export function Contact() {
     } catch (caught) {
       setStatus("error");
       setError(
-        caught instanceof Error
-          ? caught.message
-          : "Something broke. Message me on LinkedIn instead.",
+        caught instanceof Error ? caught.message : copy.errorFallback,
       );
     }
   }
@@ -58,41 +57,44 @@ export function Contact() {
       <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-8 md:py-28">
         <Reveal>
           <h2 className="max-w-[16ch] text-3xl font-medium tracking-tight md:text-4xl">
-            Tell me about the studio
+            {copy.heading}
           </h2>
           <p className="mt-4 max-w-[48ch] text-[16px] leading-relaxed text-muted">
-            I will tell you if I can help. LinkedIn is always open if you
-            prefer it.
+            {copy.body}
           </p>
         </Reveal>
 
         <Reveal delay={0.08} className="mt-12 max-w-xl">
           {status === "success" ? (
             <p className="border border-line bg-bg-elev px-5 py-6 text-[16px] leading-relaxed">
-              Got it. The fastest reply is still LinkedIn if you want to add
-              anything.
+              {copy.success}
               <a
                 href={site.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 block font-medium text-accent"
               >
-                Open LinkedIn
+                {copy.linkedinLabel}
               </a>
             </p>
           ) : (
             <form onSubmit={onSubmit} className="flex flex-col gap-5">
-              <Field id="name" label="Name" type="text" autoComplete="name" />
+              <Field
+                id="name"
+                label={copy.nameLabel}
+                type="text"
+                autoComplete="name"
+              />
               <Field
                 id="email"
-                label="Email"
+                label={copy.emailLabel}
                 type="email"
                 autoComplete="email"
               />
-              <Field id="studio" label="Studio" type="text" />
+              <Field id="studio" label={copy.contextLabel} type="text" />
               <div className="flex flex-col gap-2">
                 <label htmlFor="message" className="text-[14px] font-medium">
-                  What is leaking
+                  {copy.messageLabel}
                 </label>
                 <textarea
                   id="message"
@@ -115,7 +117,7 @@ export function Contact() {
                   disabled={status === "loading"}
                   className="inline-flex h-11 items-center justify-center whitespace-nowrap bg-accent px-5 text-[15px] font-medium text-accent-ink transition-[filter,transform] hover:brightness-110 active:scale-[0.98] disabled:opacity-60"
                 >
-                  {status === "loading" ? "Sending" : site.cta}
+                  {status === "loading" ? copy.sending : site.cta}
                 </button>
                 <a
                   href={site.linkedin}
@@ -123,7 +125,7 @@ export function Contact() {
                   rel="noopener noreferrer"
                   className="inline-flex h-11 items-center gap-1.5 px-2 text-[15px] font-medium text-ink"
                 >
-                  LinkedIn
+                  {identity.linkedinLabel}
                   <ArrowUpRight size={16} />
                 </a>
               </div>
