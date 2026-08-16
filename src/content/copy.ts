@@ -201,7 +201,7 @@ export const interestsPage = {
   ogHeadline: "Things I actually do",
   heading: "Things I actually do",
   intro:
-    "Not a list of aspirations. These are the things I spend real hours on, and most of them are the same activity wearing different clothes: incomplete information, a decision anyway, and a scoreboard afterward.",
+    "Not a list of aspirations. These are the things I spend real hours on. Most of them are the same activity wearing different clothes: incomplete information, a decision anyway, and a scoreboard afterward. The rest are maintenance on the machine that does the deciding.",
   items: [
     {
       title: "Chess",
@@ -212,8 +212,28 @@ export const interestsPage = {
       body: "Same appeal as chess with the information removed. I care more about whether a decision was correct than whether the hand won, which is why the app I built grades the decision and not the result.",
     },
     {
+      title: "Football and baseball, instrumented",
+      body: "I watch a lot of NFL and MLB, and I could not leave it alone. An agent pulls batter-versus-pitcher history every morning at 4:30, a live rail texts me mid-game when something worth seeing is happening, and my fantasy lineups run on a daily automation. Fandom, but with a scoreboard.",
+    },
+    {
+      title: "Detective dramas",
+      body: "My fiction of choice, and it is the same shape as chess and poker: somebody with incomplete information refusing to guess before the evidence is in.",
+    },
+    {
       title: "Cold, heat, and light",
       body: "I use them every day. Not a brand posture. It is how I know whether a protocol is something a real person will keep doing.",
+    },
+    {
+      title: "Breathwork and meditation",
+      body: "Daily, and usually next to the cold. Two minutes of slow exhales changes what the plunge costs, and knowing that firsthand is worth more than citing a study about it.",
+    },
+    {
+      title: "Trails and beach walks",
+      body: "The Orange County coastline, most days. It is where the hard problems get worked on without a screen in front of them.",
+    },
+    {
+      title: "Longevity, practiced",
+      body: "Training, protocols, and an unreasonable number of smoothies. The goal is to still be doing everything else on this list decades from now, and I only keep the protocols I actually follow.",
     },
     {
       title: "Reading, distilled",
