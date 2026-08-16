@@ -59,6 +59,10 @@ export const artifactsPage = {
     "Each one is something I directed into existence. Not a slide. Not a plan.",
   selfNote:
     "This website is one of them. It is the last card because you are standing in it.",
+  featuredNote: "Strongest evidence first. Everything is dated.",
+  moreHeading: "The rest of the shelf",
+  moreNote: "Same standard, shorter spotlight. Every entry opens.",
+  recentLabel: "Recently shipped",
 } as const;
 
 export type ArtifactLink = {
@@ -73,6 +77,9 @@ export type Artifact = {
   stack: string;
   evidence: string;
   links?: ArtifactLink[];
+  date?: string;
+  recent?: boolean;
+  featured?: boolean;
 };
 
 export function artifactSlug(title: string): string {
@@ -84,6 +91,8 @@ export function artifactSlug(title: string): string {
 
 export const artifacts: Artifact[] = [
   {
+    featured: true,
+    date: "Since May 2026",
     title: "North Star Watchdog",
     does: "Every Sunday an agent reads my architecture doc, compares it against what is actually running on my machine, and files a ranked report of everywhere reality has drifted from the plan. It messages me the top three.",
     orchestrated:
@@ -94,6 +103,7 @@ export const artifacts: Artifact[] = [
       "13 state-of-union runs, 2026-05-21 through 2026-08-09. The 8/9 run flagged three failures in my own systems: an agent dark 8 nights, an embedding pipeline blocked on an expired API balance, and a quarterly audit 8 days overdue. All three are real. It reported them on me.",
   },
   {
+    featured: true,
     title: "BRAIN: knowledge graph and ingestion pipeline",
     does: "A searchable database of everything my projects produce. A nightly job pulls files out of about 12 project folders, converts PDFs, Word docs and spreadsheets to markdown, filters confidential material, and imports the result into Postgres so every one of my agents can query it.",
     orchestrated:
@@ -104,25 +114,7 @@ export const artifacts: Artifact[] = [
       "1,122 pages / 8,154 chunks / 117 tags, ingested from 2,669 source files. Pipeline log is 24,904 lines. Embedding coverage is currently 67%. The balance ran out, my Watchdog caught it, and it is on the list.",
   },
   {
-    title: "Reset Cove Daily Pulse",
-    does: "Every morning an agent logs into a studio's booking back office, pulls six operational reports, and writes a dated operating brief tracking membership changes, revenue, and failed payments day over day.",
-    orchestrated:
-      "I wrote the retrieval contract and the accounting rules, including separating collected revenue from prepaid membership redemptions, which I got wrong first and then went back and corrected in my own prior entries. I built the receipt discipline: a section cannot be published as current without a complete retrieval receipt. The calls that matter are judgment, not extraction. I ruled that a no-card deactivation is a configuration ending rather than churn, and caught that voluntary churn is invisible in the payments report and only shows in roster deltas.",
-    stack:
-      "browser automation against the booking platform, 741-line Python runtime (stdlib only), 6 per-surface JavaScript extractors, JSON state store with dated history, pytest suite, scheduled task for the morning handoff.",
-    evidence:
-      "1,520 lines / about 60,000 words of daily brief, first entry 2026-06-26, most recent today. 9 dated run snapshots with timing telemetry and a tracked open-items ledger.",
-  },
-  {
-    title: "Agent fan-out at scale",
-    does: "For large jobs I run workflows that spawn dozens of parallel subagents, each with its own task, then merge what comes back.",
-    orchestrated:
-      "The decomposition. Deciding what fans out, across which projects, and what has to come back before the next stage can start.",
-    stack: "Claude Code subagent workflows, JSONL journals per run.",
-    evidence:
-      "61 workflow journals, 1,930 events, 1,037 subagent launches, spanning 2026-07-03 to 2026-08-11. Largest single run: 86 agents.",
-  },
-  {
+    date: "Since April 2026",
     title: "Hermes / Max: always-on agent",
     does: "A persistent agent on my laptop running on its own schedule. Nightly task review, email watching, deliverability monitoring. It messages me on Telegram when something needs a human.",
     orchestrated:
@@ -133,6 +125,8 @@ export const artifacts: Artifact[] = [
       "1,884 sessions / 7,863 messages / 1,920 tool calls between 2026-04-21 and today. 1,840 of those sessions fired from cron, not from me. One job ran 1,348 times. Honest status: 10 of 11 jobs are paused and the last active one has failed 8 straight nights on network and credit-balance errors. It ran unattended for four months and is now in a documented failure state that my own audit system caught before I did.",
   },
   {
+    date: "August 2026",
+    recent: true,
     title: "Apple Corps: a standing agent organization",
     does: "Five persistent agent sessions with named roles, a president and four managers, one per project, that message each other. I tell the president \"muster\" and it polls all four, collects reports, and produces a brief.",
     orchestrated:
@@ -143,6 +137,29 @@ export const artifacts: Artifact[] = [
       "80 files. Protocol document plus five ratified charters, 325 lines. First muster 2026-08-08 with five live sessions; one recorded session rollover on 8/12. Honest status: this is about a week old. The law and the first muster are real. Sustained multi-cycle operation is not proven yet.",
   },
   {
+    date: "July–August 2026",
+    title: "Agent fan-out at scale",
+    does: "For large jobs I run workflows that spawn dozens of parallel subagents, each with its own task, then merge what comes back.",
+    orchestrated:
+      "The decomposition. Deciding what fans out, across which projects, and what has to come back before the next stage can start.",
+    stack: "Claude Code subagent workflows, JSONL journals per run.",
+    evidence:
+      "61 workflow journals, 1,930 events, 1,037 subagent launches, spanning 2026-07-03 to 2026-08-11. Largest single run: 86 agents.",
+  },
+  {
+    date: "Since June 2026",
+    title: "Studio Daily Pulse",
+    does: "Every morning an agent logs into a studio's booking back office, pulls six operational reports, and writes a dated operating brief tracking membership changes, revenue, and failed payments day over day.",
+    orchestrated:
+      "I wrote the retrieval contract and the accounting rules, including separating collected revenue from prepaid membership redemptions, which I got wrong first and then went back and corrected in my own prior entries. I built the receipt discipline: a section cannot be published as current without a complete retrieval receipt. The calls that matter are judgment, not extraction. I ruled that a no-card deactivation is a configuration ending rather than churn, and caught that voluntary churn is invisible in the payments report and only shows in roster deltas.",
+    stack:
+      "browser automation against the booking platform, 741-line Python runtime (stdlib only), 6 per-surface JavaScript extractors, JSON state store with dated history, pytest suite, scheduled task for the morning handoff.",
+    evidence:
+      "1,520 lines / about 60,000 words of daily brief, first entry 2026-06-26, most recent today. 9 dated run snapshots with timing telemetry and a tracked open-items ledger.",
+  },
+  {
+    featured: true,
+    date: "Data 2024–2026",
     title: "BestieScorecard",
     does: "Downloads a podcast, transcribes it, extracts every forward-looking prediction each host makes, scores them once they resolve, and publishes a public accuracy leaderboard.",
     orchestrated:
@@ -150,9 +167,13 @@ export const artifacts: Artifact[] = [
     stack:
       "Python, yt-dlp + Whisper, JSON store, React dashboard, Vercel, launchd weekly.",
     evidence:
-      "1,858 predictions across 153 episodes, 368 scored: 117 correct, 150 partial, 101 wrong, 615 still too vague to score. Data spans 2024-08 to 2026-07. The \"too vague\" bucket is the honest part: my own extractor's noise, labeled.",
+      "2,031 predictions extracted across 158 episodes, 368 scored: 117 correct, 150 partial, 101 wrong. The rest are unscored, most of them my own extractor's future-tense noise, and they stay labeled that way. Data spans 2024-08 to 2026-07. The unscored bucket is the honest part.",
+    links: [
+      { label: "Live scoreboard", href: "https://bestiescorecard.com" },
+    ],
   },
   {
+    date: "July 2026",
     title: "Poker Coach and Chess Coach",
     does: "Two training apps, both fully offline in the browser. The poker app deals a 10-handed sit-n-go against 9 AI opponents and grades every decision afterward against position-based range charts and real pot odds versus a Monte Carlo equity estimate, tracking recurring leaks over time. The chess app runs a real engine locally with drills and an opening trainer.",
     orchestrated:
@@ -176,6 +197,8 @@ export const artifacts: Artifact[] = [
       "Four packaged skills on disk plus a scheduled task. Tracker covers 2024-11 through 2026-12 daily across three named tubs. I have no run counter for these.",
   },
   {
+    date: "August 2026",
+    recent: true,
     title: "This website",
     does: "A public personal site. Hiring managers get a hub. Studio work sits on its own page. The thing you are reading is the deliverable.",
     orchestrated:
