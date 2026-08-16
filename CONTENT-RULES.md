@@ -58,12 +58,15 @@ gut a legitimate consulting argument. Ask: *is this measuring Rob, or measuring
 the market?* Measuring Rob → off-paper. Measuring the market → allowed, and
 Rob has ruled.
 
-## 4. Never name Reset Cove
+## 4. Never name the successor entity
 
-The wellness studio is referred to generically. Reset Cove is a separate business
-with its own owner, and entity-boundary discipline is not optional.
+The wellness studio Rob operated is referred to generically — "a wellness
+studio," or by its own name where his employment history requires it. The
+business that acquired its assets is never named on this site. It is a separate
+business with its own owner, and entity-boundary discipline is not optional.
 
-**Why:** it isn't Rob's entity to invoke on his own brand surface.
+If you need to know which entity this refers to, ask Rob or Paul. It is
+deliberately not written here, because this file is public.
 
 ## 5. Don't claim what Rob hasn't done
 
