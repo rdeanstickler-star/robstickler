@@ -40,7 +40,7 @@ export const hub = {
     },
     studios: {
       title: "Studios",
-      sentence: "I make wellness studios worth more.",
+      sentence: "Your studio is worth more than it is running at.",
     },
     doorfront: {
       title: "Doorfront",
@@ -183,8 +183,14 @@ export const artifacts: Artifact[] = [
     stack:
       "Next.js, Motion, Phosphor, Vercel. The stack is ordinary. The loop is the work.",
     evidence:
-      "It is live at this URL. I caught an invented career number, a canonical URL pointed at a domain I do not own, and a static picture standing in for a real Open Graph route. Those are fixed. The repo is private, but the four prompts that produced this site are preserved verbatim in my Grok session history. The second build of this site was done by an agent that stated a plan, asked 11 questions, and then started building before I answered them. I kept the work and noted the gap. That is what directing agents actually looks like.",
-    links: [{ label: "This site", href: "https://robstickler.vercel.app" }],
+      "It is live at this URL. I caught an invented career number, a canonical URL pointed at a domain I do not own, and a static picture standing in for a real Open Graph route. Those are fixed. The repo is public, and the four prompts that produced the first build are preserved verbatim in my Grok session history. The second build of this site was done by an agent that stated a plan, asked 11 questions, and then started building before I answered them. I kept the work and noted the gap. That is what directing agents actually looks like.",
+    links: [
+      { label: "This site", href: "https://robstickler.vercel.app" },
+      {
+        label: "Source",
+        href: "https://github.com/rdeanstickler-star/robstickler",
+      },
+    ],
   },
 ];
 
@@ -230,10 +236,10 @@ export const doorfrontPage = {
 } as const;
 
 export const studiosMeta = {
-  title: "Rob Stickler, operator for wellness studios",
+  title: "Rob Stickler, wellness studio operations",
   description:
-    "I make wellness studios worth more. Retention, member experience, and operations for owners who already have the rooms.",
-  ogHeadline: "I make wellness studios worth more.",
+    "Your studio is worth more than it is running at. Retention, member experience, and operations for owners who already have the rooms.",
+  ogHeadline: "Your studio is worth more than it is running at.",
 } as const;
 
 export const contactNeutral = {

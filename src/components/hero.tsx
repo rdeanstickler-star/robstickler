@@ -18,7 +18,7 @@ export function Hero() {
             transition={{ duration: 0.65, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-[16ch] text-4xl font-medium tracking-tight text-balance md:text-5xl xl:text-6xl xl:leading-[1.05]"
           >
-            I make wellness studios worth more.
+            Your studio is worth more than it is running at.
           </motion.h1>
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 16 }}
@@ -26,8 +26,8 @@ export function Hero() {
             transition={{ duration: 0.65, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
             className="mt-5 max-w-[36ch] text-base leading-relaxed text-muted md:text-[17px]"
           >
-            I ran the floor and the books. Now I help owners raise what the
-            studio is already worth.
+            I ran the floor and the books at one studio for twenty months.
+            Everything on this page comes from what its ledger actually said.
           </motion.p>
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 16 }}

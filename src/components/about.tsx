@@ -17,13 +17,15 @@ export function About() {
       <div className="mx-auto max-w-[1400px] px-5 py-16 md:px-8 md:py-24">
         <Reveal>
           <h2 className="max-w-[14ch] text-3xl font-medium tracking-tight md:text-4xl">
-            I ran the rooms. I still use them.
+            I ran the rooms. Now I use them.
           </h2>
           <div className="mt-8 max-w-[62ch] space-y-5 text-[16px] leading-relaxed text-muted md:text-[17px]">
             <p>
-              I operated Plunge Performance & Recovery in Dana Point. Staffing,
-              scheduling, sales, the site, the numbers. Before that, twenty-three years
-              running teams, P&L, and customer experience.
+              I operated Plunge Performance & Recovery in Dana Point for twenty
+              months. Staffing, scheduling, sales, the site, the numbers. That
+              chapter is closed; the operating data came with me and it is mine
+              to show. Before that, twenty-three years running teams, P&L, and
+              customer experience.
             </p>
             <p>
               I use cold, heat, and light every day. That is not a brand
@@ -34,6 +36,12 @@ export function About() {
               I design the system and I talk to the member. I do not pretend to
               be the person writing the code by hand. I am the operator who
               makes sure the work happens.
+            </p>
+            <p>
+              Studio consulting is where I am headed, not where the receipts
+              are yet. This page claims one studio&apos;s books and what I
+              learned running them. When there is a client result to show, it
+              will be here.
             </p>
           </div>
         </Reveal>
