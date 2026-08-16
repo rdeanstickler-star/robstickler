@@ -197,6 +197,23 @@ export const artifacts: Artifact[] = [
       "Four packaged skills on disk plus a scheduled task. Tracker covers 2024-11 through 2026-12 daily across three named tubs. I have no run counter for these.",
   },
   {
+    date: "July 2026",
+    title: "PulseResume",
+    does: "An open-source résumé builder: a privacy-first web app with a real-time editor, ATS-friendly PDF export, and six templates. Free, MIT licensed, live.",
+    orchestrated:
+      "The spec and the verification bar. I directed the build and held it to a standard most side projects skip: an automated test suite and an accessibility audit before it shipped. I did not write the TypeScript. I owned what done meant.",
+    stack: "React + TypeScript, 197 automated tests, accessibility-audited, Netlify.",
+    evidence:
+      "Live, public, and open source. 197 automated tests is the number I will defend, and the repo is right there to check it.",
+    links: [
+      { label: "Live app", href: "https://pulseresume.netlify.app" },
+      {
+        label: "Source",
+        href: "https://github.com/rdeanstickler-star/pulseresume",
+      },
+    ],
+  },
+  {
     date: "August 2026",
     recent: true,
     title: "This website",
