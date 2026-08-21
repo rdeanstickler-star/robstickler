@@ -23,8 +23,8 @@ export function HubPanels() {
           href="/interests"
           title={hub.panels.interests.title}
           sentence={hub.panels.interests.sentence}
-          image="/images/coast.jpg"
-          alt="Overcast Southern California coastline, rock and pale water"
+          image="/images/harbor-sunrise.jpg"
+          alt="Sunrise over the Dana Point harbor from the bluff top, marina below"
         />
       </Reveal>
       <Reveal className="h-full md:col-span-5" delay={0.08}>

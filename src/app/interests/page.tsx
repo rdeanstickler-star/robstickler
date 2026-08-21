@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { identity, interestsPage } from "@/content/copy";
@@ -24,6 +25,27 @@ export default function InterestsPage() {
               {interestsPage.intro}
             </p>
           </Reveal>
+
+          <div className="mt-16 grid grid-cols-2 gap-3">
+            <Reveal className="relative aspect-[4/5] overflow-hidden">
+              <Image
+                src="/images/pch-sunset.jpg"
+                alt="Red sunrise sky over Pacific Coast Highway, palms and signal lights in silhouette"
+                fill
+                sizes="(min-width: 768px) 50vw, 50vw"
+                className="object-cover"
+              />
+            </Reveal>
+            <Reveal className="relative aspect-[4/5] overflow-hidden" delay={0.06}>
+              <Image
+                src="/images/bluff-aloe.jpg"
+                alt="Aloe and yucca on a bluff over the Pacific, red aloe bloom in the foreground"
+                fill
+                sizes="(min-width: 768px) 50vw, 50vw"
+                className="object-cover"
+              />
+            </Reveal>
+          </div>
 
           <ul className="mt-20 max-w-[62ch]">
             {interestsPage.items.map((item, index) => (
