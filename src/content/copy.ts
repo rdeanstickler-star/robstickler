@@ -14,7 +14,7 @@ export const routes = [
 
 export const identity = {
   operator: "Operator",
-  location: "Orange County / South California",
+  location: "Orange County / Southern California",
   email: "rdeanstickler@gmail.com",
   linkedinLabel: "LinkedIn",
   conversation: "Start a conversation",

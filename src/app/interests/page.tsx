@@ -26,8 +26,17 @@ export default function InterestsPage() {
             </p>
           </Reveal>
 
-          <div className="mt-16 grid grid-cols-2 gap-3">
+          <div className="mt-16 grid grid-cols-3 gap-3">
             <Reveal className="relative aspect-[4/5] overflow-hidden">
+              <Image
+                src="/images/harbor-jetty-fog.jpg"
+                alt="Sun burning through marine-layer fog over a harbor jetty at dawn"
+                fill
+                sizes="33vw"
+                className="object-cover"
+              />
+            </Reveal>
+            <Reveal className="relative aspect-[4/5] overflow-hidden" delay={0.06}>
               <Image
                 src="/images/pch-sunset.jpg"
                 alt="Red sunrise sky over Pacific Coast Highway, palms and signal lights in silhouette"
@@ -36,7 +45,7 @@ export default function InterestsPage() {
                 className="object-cover"
               />
             </Reveal>
-            <Reveal className="relative aspect-[4/5] overflow-hidden" delay={0.06}>
+            <Reveal className="relative aspect-[4/5] overflow-hidden" delay={0.12}>
               <Image
                 src="/images/bluff-aloe.jpg"
                 alt="Aloe and yucca on a bluff over the Pacific, red aloe bloom in the foreground"
