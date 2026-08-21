@@ -12,6 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: path === "/" ? base : `${base}${path}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
-    priority: path === "/" ? 1 : path === "/artifacts" ? 0.9 : 0.7,
+    priority:
+      path === "/"
+        ? 1
+        : path === "/artifacts"
+          ? 0.9
+          : path === "/doorfront"
+            ? 0.4
+            : 0.7,
   }));
 }

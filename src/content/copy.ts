@@ -45,7 +45,7 @@ export const hub = {
     doorfront: {
       title: "Doorfront",
       sentence:
-        "A working brand for local service businesses. Not a company yet.",
+        "Method and tooling I built for local service businesses. A side project — no entity, no clients.",
     },
   },
 } as const;
@@ -284,12 +284,14 @@ export const interestsPage = {
 
 export const doorfrontPage = {
   title: "Doorfront Digital",
-  description: "A working brand for local revenue operations. Not yet a company.",
+  description:
+    "A side project: method and tooling for local service businesses. No entity, no clients.",
   ogHeadline: "Doorfront Digital",
   heading: "Doorfront Digital",
   body: [
     "Doorfront Digital is a working brand I am building for local service businesses, the ones with real customers and a digital front door that is quietly costing them money. Websites, listings, booking flows, the operations underneath. I have built the method and the tooling.",
-    "It is not a company. There is no entity, no team, no pricing page, and no client list, because I have not taken a paying engagement yet and I am not going to represent it as more than it is. When that changes this page will change with it.",
+    "It is not a company. There is no entity, no team, no pricing page, and no client list, because I have not taken a paying engagement yet and I am not going to represent it as more than it is. If that ever changes, this page changes with it.",
+    "It is also a side project, and it stays one. Full-time work comes first and gets the good hours. Doorfront gets what is left, and it is built to be set down. If you are reading this while considering me for a role: this is how I spend spare time on the problem I would rather be paid to solve, not a business waiting for me to leave.",
   ],
   toContact:
     "If you want to talk about it, use the same conversation form as the rest of this site.",

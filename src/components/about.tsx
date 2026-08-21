@@ -38,10 +38,11 @@ export function About() {
               makes sure the work happens.
             </p>
             <p>
-              Studio consulting is where I am headed, not where the receipts
-              are yet. This page claims one studio&apos;s books and what I
-              learned running them. When there is a client result to show, it
-              will be here.
+              This page claims one studio&apos;s books and what I learned
+              running them — not client results, because there are not any
+              yet. Full-time operating work is what I am built for and what
+              comes first; consulting runs alongside it when it fits. If there
+              is ever a client result to show, it will be here.
             </p>
           </div>
         </Reveal>

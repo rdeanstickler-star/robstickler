@@ -1,14 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { identity } from "@/content/copy";
 import { isMailto } from "@/lib/email";
 import { site } from "@/lib/site";
 
 export function Footer() {
-  const pathname = usePathname();
-  const contactHref = pathname === "/studios" ? "/studios#contact" : "/#contact";
+  const contactHref = "/#contact";
 
   return (
     <footer className="border-t border-line">
