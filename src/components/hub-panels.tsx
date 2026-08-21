@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { hub } from "@/content/copy";
@@ -12,6 +13,8 @@ export function HubPanels() {
           href="/artifacts"
           title={hub.panels.artifacts.title}
           sentence={hub.panels.artifacts.sentence}
+          image="/images/desk.jpg"
+          alt="A closed black notebook, steel pen, and glass of water on a dark desk"
           lead
         />
       </Reveal>
@@ -20,6 +23,8 @@ export function HubPanels() {
           href="/interests"
           title={hub.panels.interests.title}
           sentence={hub.panels.interests.sentence}
+          image="/images/coast.jpg"
+          alt="Overcast Southern California coastline, rock and pale water"
         />
       </Reveal>
       <Reveal className="h-full md:col-span-5" delay={0.08}>
@@ -27,6 +32,8 @@ export function HubPanels() {
           href="/studios"
           title={hub.panels.studios.title}
           sentence={hub.panels.studios.sentence}
+          image="/images/water.jpg"
+          alt="Close view of still water in a steel cold plunge"
         />
       </Reveal>
       <Reveal className="h-full md:col-span-5" delay={0.1}>
@@ -45,19 +52,23 @@ function Panel({
   href,
   title,
   sentence,
+  image,
+  alt,
   lead = false,
   compact = false,
 }: {
   href: string;
   title: string;
   sentence: string;
+  image?: string;
+  alt?: string;
   lead?: boolean;
   compact?: boolean;
 }) {
   return (
     <Link
       href={href}
-      className={`group flex h-full flex-col justify-end border border-line bg-bg-elev p-6 transition-colors hover:border-ink md:p-8 ${
+      className={`group relative isolate flex h-full flex-col justify-end overflow-hidden border border-line bg-bg-elev p-6 transition-colors hover:border-ink md:p-8 ${
         lead
           ? "min-h-[340px] md:min-h-[680px]"
           : compact
@@ -65,17 +76,30 @@ function Panel({
             : "min-h-[240px] md:min-h-[320px]"
       }`}
     >
+      {image ? (
+        <>
+          <Image
+            src={image}
+            alt={alt ?? ""}
+            fill
+            sizes={lead ? "(min-width: 768px) 58vw, 100vw" : "(min-width: 768px) 42vw, 100vw"}
+            priority={lead}
+            className="-z-20 object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141618]/88 via-[#141618]/40 to-[#141618]/12" />
+        </>
+      ) : null}
       <h2
         className={`font-medium tracking-tight ${
-          lead ? "text-3xl md:text-5xl" : "text-2xl md:text-3xl"
-        }`}
+          image ? "text-white" : ""
+        } ${lead ? "text-3xl md:text-5xl" : "text-2xl md:text-3xl"}`}
       >
         {title}
       </h2>
       <p
-        className={`mt-3 max-w-[42ch] leading-relaxed text-muted ${
-          lead ? "text-[16px] md:text-[17px]" : "text-[15px]"
-        }`}
+        className={`mt-3 max-w-[42ch] leading-relaxed ${
+          image ? "text-white/78" : "text-muted"
+        } ${lead ? "text-[16px] md:text-[17px]" : "text-[15px]"}`}
       >
         {sentence}
       </p>
