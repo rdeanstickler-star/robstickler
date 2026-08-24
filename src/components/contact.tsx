@@ -91,7 +91,7 @@ export function Contact({ copy = contactNeutral }: { copy?: ContactCopy }) {
                 type="email"
                 autoComplete="email"
               />
-              <Field id="studio" label={copy.contextLabel} type="text" />
+              <Field id="studio" label={copy.contextLabel} type="text" optional />
               <div className="flex flex-col gap-2">
                 <label htmlFor="message" className="text-[14px] font-medium">
                   {copy.messageLabel}
@@ -142,11 +142,13 @@ function Field({
   label,
   type,
   autoComplete,
+  optional = false,
 }: {
   id: string;
   label: string;
   type: string;
   autoComplete?: string;
+  optional?: boolean;
 }) {
   return (
     <div className="flex flex-col gap-2">
@@ -157,7 +159,7 @@ function Field({
         id={id}
         name={id}
         type={type}
-        required
+        required={!optional}
         autoComplete={autoComplete}
         className="h-11 border border-ink/20 bg-input px-3 text-[15px] text-ink placeholder:text-muted focus:border-accent"
       />

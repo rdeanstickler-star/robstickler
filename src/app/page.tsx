@@ -8,6 +8,7 @@ import { getSiteUrl, site } from "@/lib/site";
 
 export function generateMetadata() {
   return pageMetadata({
+    absoluteTitle: "Rob Stickler, Operator in Orange County",
     description: hub.description,
     path: "/",
   });

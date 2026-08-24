@@ -24,7 +24,7 @@ export async function POST(request: Request) {
   const studio = String(body.studio ?? "").trim();
   const message = String(body.message ?? "").trim();
 
-  if (!name || !email || !studio || !message) {
+  if (!name || !email || !message) {
     return NextResponse.json(
       { ok: false, message: "Every field needs something in it." },
       { status: 400 },
@@ -53,9 +53,13 @@ export async function POST(request: Request) {
         to: [destination],
         reply_to: email,
         subject: `Note from ${name}`,
-        text: [`Name: ${name}`, `Email: ${email}`, `Studio: ${studio}`, "", message].join(
-          "\n",
-        ),
+        text: [
+          `Name: ${name}`,
+          `Email: ${email}`,
+          `Studio: ${studio || "(not given)"}`,
+          "",
+          message,
+        ].join("\n"),
       }),
     });
 

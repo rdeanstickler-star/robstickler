@@ -478,7 +478,7 @@ export const contactNeutral = {
   body: "Say what you need. I will tell you if I can help.",
   nameLabel: "Name",
   emailLabel: "Email",
-  contextLabel: "Company",
+  contextLabel: "Company (optional)",
   messageLabel: "Message",
   success:
     "Got it. The fastest reply is still LinkedIn if you want to add anything.",
@@ -492,7 +492,7 @@ export const contactStudios = {
   body: "I will tell you if I can help. LinkedIn is always open if you prefer it.",
   nameLabel: "Name",
   emailLabel: "Email",
-  contextLabel: "Studio",
+  contextLabel: "Studio (optional)",
   messageLabel: "What is leaking",
   success:
     "Got it. The fastest reply is still LinkedIn if you want to add anything.",
