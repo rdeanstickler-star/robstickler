@@ -1,4 +1,5 @@
 import { Contact } from "@/components/contact";
+import { OrgChart, OrgChartLegend } from "@/components/org-chart";
 import { Reveal } from "@/components/reveal";
 import { contactNeutral, orgPage, type OrgNode } from "@/content/copy";
 import { pageMetadata } from "@/lib/metadata";
@@ -97,49 +98,33 @@ export default function OrgPage() {
               {orgPage.chartHeading}
             </h2>
           </Reveal>
-          <div className="mt-10">
-            {orgPage.tiers
-              .slice()
-              .reverse()
-              .reduce<React.ReactNode>((childBlock, tier, reverseIndex) => {
-                const tierIndex = orgPage.tiers.length - 1 - reverseIndex;
-                return (
-                  <div key={tier.label}>
-                    <Reveal>
-                      {tierIndex > 0 ? (
-                        <p className="flex items-center gap-3 pt-8 font-mono text-[12px] uppercase tracking-[0.16em] text-muted">
-                          <span
-                            aria-hidden
-                            className="-ml-5 h-px w-5 bg-line md:-ml-8 md:w-8"
-                          />
-                          {tier.label}
-                        </p>
-                      ) : (
-                        <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-muted">
-                          {tier.label}
-                        </p>
-                      )}
-                      <div
-                        className={`mt-3 grid grid-cols-1 gap-3 ${
-                          tier.nodes.length === 1
-                            ? "md:max-w-[520px]"
-                            : "sm:grid-cols-2 lg:grid-cols-3"
-                        }`}
-                      >
-                        {tier.nodes.map((node) => (
-                          <NodeCard key={node.name} node={node} />
-                        ))}
-                      </div>
-                    </Reveal>
-                    {childBlock ? (
-                      <div className="ml-4 border-l border-line pl-5 md:ml-6 md:pl-8">
-                        {childBlock}
-                      </div>
-                    ) : null}
+          <Reveal>
+            <OrgChartLegend />
+            <OrgChart />
+          </Reveal>
+
+          <details className="group mt-8">
+            <summary className="cursor-pointer list-none text-[15px] text-muted [&::-webkit-details-marker]:hidden">
+              <span className="font-mono text-accent" aria-hidden>
+                +{" "}
+              </span>
+              Prefer it as text? Every seat, one line each.
+            </summary>
+            <div className="mt-6 flex flex-col gap-8">
+              {orgPage.tiers.map((tier) => (
+                <div key={tier.label}>
+                  <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-muted">
+                    {tier.label}
+                  </p>
+                  <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                    {tier.nodes.map((node) => (
+                      <NodeCard key={node.name} node={node} />
+                    ))}
                   </div>
-                );
-              }, null)}
-          </div>
+                </div>
+              ))}
+            </div>
+          </details>
           <Reveal>
             <p className="mt-10 max-w-[62ch] text-[15px] leading-relaxed text-muted">
               {orgPage.redactionNote}
