@@ -127,14 +127,15 @@ export const artifacts: Artifact[] = [
   {
     date: "August 2026",
     recent: true,
-    title: "Apple Corps: a standing agent organization",
-    does: "Five persistent agent sessions with named roles, a president and four managers, one per project, that message each other. I tell the president \"muster\" and it polls all four, collects reports, and produces a brief.",
+    title: "The agent organization",
+    does: "A standing organization of AI agents: five chartered seats under a president, a cross-platform control tower, staff lanes, and an inter-agent messaging protocol, all operating under written law with every ratification reserved to me. I tell the president \"muster\" and it polls its seats, collects reports, and produces a brief.",
     orchestrated:
-      "I wrote the constitution. A single-writer event-ledger law, a ban on agents scheduling themselves, a quarantine list of projects no agent may touch, a requirement that every claim be verifiable on disk, and ratification authority reserved to me.",
+      "I wrote the constitution. A single-writer event-ledger law, a ban on agents scheduling themselves, a quarantine list of projects no agent may touch, a requirement that every claim be verifiable on disk, and ratification authority reserved to me. The full ten laws, and the chart itself, are public.",
     stack:
-      "persistent Claude Code sessions with inter-agent messaging, per-actor JSONL event ledger with append locks, bash verification scripts, versioned markdown charters.",
+      "persistent Claude Code sessions with inter-agent messaging, a Codex control tower, per-actor JSONL event ledgers with append locks, bash verification scripts, versioned markdown charters.",
     evidence:
-      "80 files. Protocol document plus five ratified charters, 325 lines. First muster 2026-08-08 with five live sessions; one recorded session rollover on 8/12. Honest status: this is about a week old. The law and the first muster are real. Sustained multi-cycle operation is not proven yet.",
+      "18 seats and lanes on the chart. Five ratified charters, 17 sections of written law, 18 ledger event types, about 713 KB of append-only event history, and a protocol-enforcement package at 285/285 tests, hash-pinned at ratification. First muster 2026-08-08. Honest status: the organization is weeks old, not years; the law and the ledgers are real, and long-run operation is still being proven.",
+    links: [{ label: "The public chart", href: "/org" }],
   },
   {
     date: "July–August 2026",
@@ -295,6 +296,174 @@ export const doorfrontPage = {
   ],
   toContact:
     "If you want to talk about it, use the same conversation form as the rest of this site.",
+} as const;
+
+export type OrgNode = {
+  name: string;
+  note: string;
+  kind?: "chairman" | "self" | "redacted";
+};
+
+export const orgPage = {
+  title: "The Agent Organization",
+  description:
+    "The public edition of the chart: named seats, written law, append-only ledgers, one human with all ratification authority.",
+  ogHeadline: "An organization of agents, under written law",
+  heading: "An organization of agents, under written law",
+  intro: [
+    "I run an organization of AI agents. Named seats, written charters, append-only event ledgers, and one human at the top holding every ratification. This page is the public edition of its chart.",
+    "The same quarantine law that binds the agents binds this page, which is why parts of it are redacted. And one detail worth knowing: I directed one of the seats, Carlos, to design and build the page you are reading, and I sent back what it got wrong.",
+  ],
+  lawsHeading: "The law comes first",
+  lawsIntro:
+    "The chart is the easy part. What makes the organization work is that every seat operates under the same written rules. These are the ten that matter.",
+  laws: [
+    {
+      title: "One writer per record.",
+      body: "Every agent appends to its own event ledger; nobody edits anyone else's. Append-only JSONL, one file per seat.",
+    },
+    {
+      title: "Nothing runs between messages.",
+      body: "Agents are event-driven and may not schedule themselves; every activation traces back to a human trigger.",
+    },
+    {
+      title: "Claims are verified on disk, never trusted.",
+      body: "An agent's report is checked against the file system before it counts. Absence of an artifact reads as unknown, never as did-not-happen.",
+    },
+    {
+      title: "Authority is default-deny.",
+      body: "Agents hold read-and-propose rights. Destructive or out-of-lane writes require a written grant quoting the human's words, naming the exact objects, with an expiry.",
+    },
+    {
+      title: "Addresses resolve at send time.",
+      body: "Agents message each other by exact chat title, looked up fresh for every send. Stored addresses go stale and are banned.",
+    },
+    {
+      title: "Never interrupt a working agent.",
+      body: "Before any message, the sender verifies the recipient is idle. A message landing mid-task can corrupt the task.",
+    },
+    {
+      title: "Compose first, then check, then send.",
+      body: "The full message is written before the idle check, so the send happens inside the same safe window.",
+    },
+    {
+      title: "A file note is not a handoff.",
+      body: "An agent that needs another agent to act sends a message. Writing a file and hoping is banned.",
+    },
+    {
+      title: "Private lanes are quarantined.",
+      body: "Some lanes touch personal and private matters. Agents outside them may say only the lane's name plus escalate-to-the-human. This law is why parts of this chart are redacted.",
+    },
+    {
+      title: "Fleet-wide instruments are human-triggered only.",
+      body: "An all-hands broadcast, or a lane-review sweep where every agent re-inspects its own lane for dropped work, fires only on my word, through one steward seat.",
+    },
+  ],
+  chartHeading: "The chart",
+  tiers: [
+    {
+      label: "The human",
+      nodes: [
+        {
+          name: "Rob, Chairman",
+          note: "Sole source of command. All ratification reserved to him.",
+          kind: "chairman",
+        },
+      ] as OrgNode[],
+    },
+    {
+      label: "Report to the Chairman",
+      nodes: [
+        {
+          name: "The Chaos Aggregator",
+          note: "Control tower. One deduplicated inventory of all active work, on a second AI platform, state in SQLite behind a single control script.",
+        },
+        {
+          name: "The President, Apple Corps",
+          note: "Division chief of a five-seat chartered organization. Coordinates, verifies, briefs. Does no project work itself.",
+        },
+        {
+          name: "Agent Org",
+          note: "Steward of this chart and the messaging protocol. Audits the address space.",
+        },
+      ] as OrgNode[],
+    },
+    {
+      label: "Division seats",
+      nodes: [
+        {
+          name: "The Hub Desk",
+          note: "Operator running the control tower day to day.",
+        },
+        {
+          name: "John",
+          note: "Long-form writing project.",
+        },
+        {
+          name: "Paul, Project Forge",
+          note: "Operations and projects hub. Carries the org's largest event ledger.",
+        },
+        {
+          name: "George",
+          note: "Wellness-studio partnership lane.",
+        },
+        {
+          name: "Ringo, The Foundries",
+          note: "Keeper of the idea foundry (1,115 catalogued ideas) and the skill foundry (297 skills, dashboard-tracked).",
+        },
+      ] as OrgNode[],
+    },
+    {
+      label: "Staff and surrogate seats",
+      nodes: [
+        {
+          name: "Carlos, Web and Brand",
+          note: "Builds and deploys this site.",
+          kind: "self",
+        },
+        {
+          name: "Elston, Career Counselor",
+          note: "Career-strategy counsel under Paul.",
+        },
+        {
+          name: "Funnel Master",
+          note: "Pipeline operations under Paul.",
+        },
+        {
+          name: "Certification and Skill Acquisition Expert",
+          note: "Professional-development lane under Paul.",
+        },
+        {
+          name: "The Wolf",
+          note: "Routine- and task-system auditor.",
+        },
+        {
+          name: "Task desk",
+          note: "Task herding.",
+        },
+        {
+          name: "Fantasy Command",
+          note: "Fantasy-sports lane: draft war rooms and home-run-prediction rails.",
+        },
+        {
+          name: "Redacted, several seats",
+          note: "Private lanes under the quarantine law.",
+          kind: "redacted",
+        },
+      ] as OrgNode[],
+    },
+  ],
+  redactionNote:
+    "Several lanes are redacted. The organization's quarantine law walls off personal and private matters: agents outside those lanes may say only the lane's name and escalate-to-the-human. The same law governs this page.",
+  evidenceHeading: "The receipts",
+  counts: [
+    { value: "18", label: "seats and lanes on the internal chart; some appear here merged or redacted" },
+    { value: "5", label: "chartered seats with ratified charters on disk" },
+    { value: "17", label: "numbered sections in the organization's written law" },
+    { value: "18", label: "event types in the binding ledger vocabulary" },
+    { value: "285/285", label: "passing tests on the protocol-enforcement package, hash-pinned at ratification" },
+    { value: "2", label: "AI platforms in one organization: a Claude Code fleet and a Codex control tower" },
+  ],
 } as const;
 
 export const studiosMeta = {

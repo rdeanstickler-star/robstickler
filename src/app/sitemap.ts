@@ -3,7 +3,7 @@ import { getSiteUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
-const paths = ["/", "/artifacts", "/interests", "/studios", "/doorfront"];
+const paths = ["/", "/artifacts", "/interests", "/studios", "/doorfront", "/org"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
