@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Contact } from "@/components/contact";
 import { HubPanels } from "@/components/hub-panels";
 import { Reveal } from "@/components/reveal";
@@ -38,7 +39,8 @@ export default function Home() {
       <main id="main">
         <section className="min-h-[100dvh]">
           <div className="mx-auto max-w-[1400px] px-5 pt-16 pb-20 md:px-8 md:pt-20 md:pb-28">
-            <Reveal>
+            <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
+            <Reveal className="lg:col-span-8">
               <p className="text-[13px] font-medium tracking-tight text-muted">
                 {identity.operator}
               </p>
@@ -67,6 +69,21 @@ export default function Home() {
                 </a>
               </div>
             </Reveal>
+
+            <Reveal className="lg:col-span-4" delay={0.08}>
+              <div className="relative aspect-[4/5] w-full max-w-[220px] overflow-hidden border border-line sm:max-w-[260px] lg:ml-auto lg:max-w-[340px]">
+                <Image
+                  src="/images/rob.jpg"
+                  alt="Rob Stickler"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 340px, (min-width: 640px) 260px, 220px"
+                  className="object-cover"
+                />
+              </div>
+            </Reveal>
+            </div>
+
             <HubPanels />
           </div>
         </section>
