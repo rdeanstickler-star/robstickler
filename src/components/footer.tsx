@@ -31,6 +31,9 @@ export function Footer() {
           >
             {identity.linkedinLabel}
           </a>
+          <a href={identity.resumeHref} className="text-ink">
+            {identity.resumeLabel}
+          </a>
         </div>
       </div>
     </footer>

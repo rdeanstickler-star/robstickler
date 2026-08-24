@@ -17,6 +17,8 @@ export const identity = {
   location: "Orange County / Southern California",
   email: "rdeanstickler@gmail.com",
   linkedinLabel: "LinkedIn",
+  resumeLabel: "Résumé",
+  resumeHref: "/resume",
   conversation: "Start a conversation",
 } as const;
 

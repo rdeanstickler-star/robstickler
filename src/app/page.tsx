@@ -67,6 +67,9 @@ export default function Home() {
                 >
                   {identity.linkedinLabel}
                 </a>
+                <a href={identity.resumeHref} className="text-ink">
+                  {identity.resumeLabel}
+                </a>
               </div>
             </Reveal>
 
