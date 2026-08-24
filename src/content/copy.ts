@@ -24,9 +24,11 @@ export const hub = {
   headline:
     "I don't write the code. I design the system that writes it, and I check its work.",
   description:
-    "Operator. Twenty-three years running teams and P&L, now running AI systems that do the work.",
+    "Operator. Seventeen years at REI Co-op, a restaurant P&L before that, and a wellness studio end to end. Now running AI systems that do the work.",
   ogHeadline:
     "I don't write the code. I design the system that writes it, and I check its work.",
+  career:
+    "Twenty months running a wellness studio end to end. Seventeen years at REI Co-op. And a Pizza Hut restaurant with thirty people, full P&L, and 40% year-over-year growth.",
   panels: {
     artifacts: {
       title: "Artifacts",

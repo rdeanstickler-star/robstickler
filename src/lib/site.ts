@@ -2,7 +2,7 @@ export const site = {
   name: "Rob Stickler",
   title: "Rob Stickler",
   description:
-    "Operator. Twenty-three years running teams and P&L, now running AI systems that do the work.",
+    "Operator. Seventeen years at REI Co-op, a restaurant P&L before that, and a wellness studio end to end. Now running AI systems that do the work.",
   linkedin: "https://www.linkedin.com/in/rob-stickler-1466b931",
   handle: "BadMojoNation",
   cta: "Start a conversation",

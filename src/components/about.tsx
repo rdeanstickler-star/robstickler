@@ -24,8 +24,8 @@ export function About() {
               I operated Plunge Performance & Recovery in Dana Point for twenty
               months. Staffing, scheduling, sales, the site, the numbers. That
               chapter is closed; the operating data came with me and it is mine
-              to show. Before that, twenty-three years running teams, P&L, and
-              customer experience.
+              to show. Before that, seventeen years at REI Co-op, and a Pizza
+              Hut restaurant with thirty people and full P&L.
             </p>
             <p>
               I use cold, heat, and light every day. That is not a brand

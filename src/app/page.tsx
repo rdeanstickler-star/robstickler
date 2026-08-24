@@ -45,6 +45,9 @@ export default function Home() {
               <h1 className="mt-5 max-w-[22ch] text-4xl font-medium tracking-tight text-balance md:text-5xl xl:text-6xl xl:leading-[1.05]">
                 {hub.headline}
               </h1>
+              <p className="mt-6 max-w-[58ch] text-[16px] leading-relaxed text-muted md:text-[17px]">
+                {hub.career}
+              </p>
               <p className="mt-6 text-[15px] text-muted">{identity.location}</p>
               <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
                 {isMailto(identity.email) ? (
