@@ -15,7 +15,7 @@ export const routes = [
 export const identity = {
   operator: "Operator",
   location: "Orange County / Southern California",
-  email: "rdeanstickler@gmail.com",
+  email: "hello@robstickler.com",
   linkedinLabel: "LinkedIn",
   resumeLabel: "Résumé",
   resumeHref: "/resume",
