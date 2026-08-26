@@ -405,19 +405,19 @@ export const operatePage = {
     },
     {
       title: "Step two is the one people skip.",
-      body: "Checking for understanding is not a courtesy; it is the step that tells you whether the first one worked. Skip it and you find out weeks later, expensively. I learn contemplatively, so a new process does not land the moment I hear it; it lands once I have turned it over. A pause to confirm is what turns that from a week into ten minutes.",
+      body: "Checking for understanding is the step that tells you whether the first one worked. Skip it and you find out weeks later, expensively. I learn contemplatively, so a new process does not land the moment I hear it; it lands once I have turned it over. A pause to confirm is what turns that from a week into ten minutes.",
     },
     {
       title: "It runs in both directions.",
-      body: "This is not only how I teach. It is how I take things in: a process, a procedure, or a story told over a beer. If the opening is ambiguous I am still working on it while the rest of it arrives. So I hold myself to the standard I am asking for. The first telling I give you is the one I would want back.",
+      body: "This is how I teach, and it is also how I take things in: a process, a procedure, or a story told over a beer. If the opening is ambiguous I am still working on it while the rest of it arrives. So I hold myself to the standard I am asking for. The first telling I give you is the one I would want back.",
     },
     {
       title: "Ambiguity costs me more than it costs you.",
-      body: "When something is vague I cannot file it away and keep listening. I have to hold it open as a question, and while I am holding it I am not taking in what comes next. Three vague sentences and I have stopped absorbing the fourth. It is not that I did not follow. It is that I am still working on the first one.",
+      body: "When something is vague I cannot file it away and keep listening. I have to hold it open as a question, and while I am holding it I am not taking in what comes next. Three vague sentences and I have stopped absorbing the fourth. I followed you fine. I am just still working on the first one.",
     },
     {
       title: "What I do with a clear process.",
-      body: "I do not just run it. I write it down, find its edges, automate the repetitive parts, and hand back something better than I was given. Most of the systems on this site began as somebody else's process that I understood properly and then extended.",
+      body: "Then I go further with it. I write it down, find its edges, automate the repetitive parts, and hand back something better than I was given. Most of the systems on this site began as somebody else's process that I understood properly and then extended.",
     },
   ],
   helpsHeading: "What helps",
@@ -434,6 +434,8 @@ export const operatePage = {
     "I will still work with you well inside a clear arrangement: defined scope, defined outcome, no drama. What suffers is open-ended collaboration, which needs shared precision to be worth anything.",
   closing:
     "If you already write things down and say what you mean, none of this costs you a thing. You just get the version of me that builds the process out, and then improves it.",
+  disclaimer:
+    "I did not write the prose on this page. I inspired it. An AI crafted and finished the writing.",
 } as const;
 
 export const doorfrontPage = {

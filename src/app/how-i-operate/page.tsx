@@ -77,6 +77,9 @@ export default function OperatePage() {
               <p className="border-t border-line pt-10 text-[17px] leading-relaxed text-ink md:text-[19px]">
                 {operatePage.closing}
               </p>
+              <p className="mt-12 border-t border-line pt-6 text-[13px] leading-relaxed text-muted">
+                {operatePage.disclaimer}
+              </p>
             </Reveal>
           </div>
         </div>
