@@ -5,6 +5,7 @@ export const nav = {
   doorfront: "Doorfront",
   photographs: "Photographs",
   work: "Work",
+  operate: "How I operate",
 } as const;
 
 export const routes = [
@@ -14,6 +15,7 @@ export const routes = [
   { href: "/studios", label: nav.studios },
   { href: "/doorfront", label: nav.doorfront },
   { href: "/photographs", label: nav.photographs },
+  { href: "/how-i-operate", label: nav.operate },
 ] as const;
 
 export const identity = {
@@ -379,6 +381,43 @@ export const workEntries: WorkEntry[] = [
     ],
   },
 ];
+
+export const operatePage = {
+  title: "How I operate",
+  description:
+    "A short manual for working with me: how I take in a new process, what clarity buys you, and what I build once I have it.",
+  ogHeadline: "How I operate",
+  heading: "How I operate",
+  intro:
+    "A short manual for working with me. It exists because the thing that makes me effective is also the thing most easily lost in a bad handoff.",
+  sections: [
+    {
+      title: "Tell me the process once, clearly.",
+      body: "I learn contemplatively. A new process does not land the moment I hear it; it lands once I have turned it over. Whether that takes ten minutes or a week depends almost entirely on how unambiguous the first telling was.",
+    },
+    {
+      title: "Ambiguity costs me more than it costs you.",
+      body: "When something is vague I cannot file it away and keep listening. I have to hold it open as a question, and while I am holding it I am not taking in what comes next. Three vague sentences and I have stopped absorbing the fourth. It is not that I did not follow. It is that I am still working on the first one.",
+    },
+    {
+      title: "What I do with a clear process.",
+      body: "I do not just run it. I write it down, find its edges, automate the repetitive parts, and hand back something better than I was given. Most of the systems on this site began as somebody else's process that I understood properly and then extended.",
+    },
+  ],
+  helpsHeading: "What helps",
+  helps: [
+    "Say the goal before the steps.",
+    "One thing at a time, with room to confirm before the next.",
+    "Name the done-state.",
+    "Put it in writing, or let me.",
+    "If I stop you to ask what something means, that is the process working, not stalling.",
+  ],
+  limitHeading: "If we cannot get there",
+  limitBody:
+    "I will still work with you well inside a clear arrangement: defined scope, defined outcome, no drama. What suffers is open-ended collaboration, which needs shared precision to be worth anything.",
+  closing:
+    "If you already write things down and say what you mean, none of this costs you a thing. You just get the version of me that builds the process out, and then improves it.",
+} as const;
 
 export const doorfrontPage = {
   title: "Doorfront Digital",
