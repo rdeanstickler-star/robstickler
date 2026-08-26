@@ -298,7 +298,7 @@ export const photographsPage = {
   ogHeadline: "Photographs",
   heading: "Photographs",
   intro:
-    "I like taking pictures. These days it is usually just whatever phone is in my pocket. Here are some of my favorites.",
+    "I like taking pictures. The older ones are from a real camera; these days it is usually just whatever phone is in my pocket. Here are some of my favorites.",
   empty: "Nothing here yet.",
 } as const;
 
