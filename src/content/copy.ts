@@ -4,9 +4,11 @@ export const nav = {
   studios: "Studios",
   doorfront: "Doorfront",
   photographs: "Photographs",
+  work: "Work",
 } as const;
 
 export const routes = [
+  { href: "/work", label: nav.work },
   { href: "/artifacts", label: nav.artifacts },
   { href: "/interests", label: nav.interests },
   { href: "/studios", label: nav.studios },
@@ -305,6 +307,78 @@ export const photographsPage = {
     "I like taking pictures. The older ones are from a real camera; these days it is usually just whatever phone is in my pocket. Here are some of my favorites.",
   empty: "Nothing here yet.",
 } as const;
+
+export type WorkPhoto = { src: string; alt: string; caption: string };
+export type WorkEntry = {
+  role: string;
+  org: string;
+  dates: string;
+  body: string;
+  photos: WorkPhoto[];
+  video?: { src: string; poster: string; caption: string };
+  link?: { label: string; href: string };
+};
+
+export const workPage = {
+  title: "Work",
+  description:
+    "Four chapters of work history, with photographs from the rooms where it happened.",
+  ogHeadline: "The work, and the rooms it happened in",
+  heading: "The work, and the rooms it happened in",
+  intro:
+    "A resume tells you where I worked. These are pictures from those places. Only the chapters I have photographs of are here.",
+  note: "Titles and dates match my resume exactly.",
+} as const;
+
+export const workEntries: WorkEntry[] = [
+  {
+    role: "Independent AI Operations Builder",
+    org: "Self-directed",
+    dates: "Jun 2026 to present",
+    body: "Building and running AI systems that do real operational work, then checking their output. The evidence for this chapter is not photographs; it is the systems themselves.",
+    photos: [],
+    link: { label: "See the artifacts", href: "/artifacts" },
+  },
+  {
+    role: "Studio Manager",
+    org: "Plunge Performance & Recovery, Dana Point, CA",
+    dates: "Sep 2022 to May 2026",
+    body: "I ran every operating function of a wellness studio as its only full-time operator. It opened under an earlier name in a room we built out ourselves, and it grew into the space in the later photographs.",
+    photos: [
+      { src: "/images/work/plunge-floor.jpg", alt: "Interlocking wood floor tiles being laid around a cold plunge tub during build-out", caption: "Build-out. The floor going in." },
+      { src: "/images/work/plunge-room-2022.jpg", alt: "A finished plunge room with a single steel-framed tub, wood decking and a stone statue", caption: "The first room, finished." },
+      { src: "/images/work/plunge-sign.jpg", alt: "A large storefront sign laid flat on the parking lot pavement before installation, banner hung on the stairs above", caption: "Opening week. Sign on the ground, not yet on the wall." },
+      { src: "/images/work/plunge-lobby-2024.jpg", alt: "Studio lobby with a moss wall, front desk and neon signage", caption: "The same business, two years on." },
+      { src: "/images/work/plunge-treatment-2024.jpg", alt: "A treatment room with a therapy table, equipment cart and wall art", caption: "Treatment room." },
+      { src: "/images/work/plunge-red-2024.jpg", alt: "A therapy pod in a room lit entirely in deep red light", caption: "Red light room." },
+    ],
+    video: {
+      src: "/video/plunge-training.mp4",
+      poster: "/images/work/plunge-training-poster.jpg",
+      caption: "Thirty seconds of the actual job: walking a general audience through a routine temperature change on a plunge.",
+    },
+  },
+  {
+    role: "Customer Service & Online Sales Specialist",
+    org: "REI Co-op, Sumner, WA",
+    dates: "Sep 2003 to Jun 2020",
+    body: "Seventeen years, advancing from call-center agent through Online Sales, Training, Service Assurance, and Customer Service Escalation Specialist. I delivered contact-center training for over a decade, which is what the classroom pictures are.",
+    photos: [
+      { src: "/images/work/rei-desk.jpg", alt: "Rob Stickler at a contact-center workstation wearing earbuds, monitor and keyboard in front of him", caption: "At the desk." },
+      { src: "/images/work/rei-board.jpg", alt: "A classroom whiteboard headed Welcome to Basic Training, listing the week one agenda alongside a drawing", caption: "A Basic Training board, week one. Someone else's marker work; my classroom." },
+      { src: "/images/work/rei-classroom.jpg", alt: "A training room set up with tables, laptops and a projector screen before a class", caption: "The room, set up for a class." },
+    ],
+  },
+  {
+    role: "Restaurant General Manager",
+    org: "Pizza Hut, Western Washington",
+    dates: "1997 to 2003",
+    body: "Full P&L and a team of about thirty. Grew sales 40% year over year and was named Manager of the Year for all Pizza Huts in Western Washington in 1998. One photograph survives.",
+    photos: [
+      { src: "/images/work/ph-counter.jpg", alt: "A 1990s photograph of a young Rob Stickler in uniform behind a Pizza Hut front counter", caption: "The only one I have." },
+    ],
+  },
+];
 
 export const doorfrontPage = {
   title: "Doorfront Digital",
