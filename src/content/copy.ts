@@ -392,8 +392,12 @@ export const operatePage = {
     "A short manual for working with me. It exists because the thing that makes me effective is also the thing most easily lost in a bad handoff.",
   sections: [
     {
-      title: "Tell me the process once, clearly.",
-      body: "I learn contemplatively. A new process does not land the moment I hear it; it lands once I have turned it over. Whether that takes ten minutes or a week depends almost entirely on how unambiguous the first telling was.",
+      title: "The best training method I know, I learned at Pizza Hut.",
+      body: "In 1998 I was taught a three-step model for training people, and I have never found better. Show and tell: demonstrate it and explain it at the same time, once, clearly. Guided practice: watch them do it and check for understanding while a correction is still cheap. Follow-up: come back later and confirm it held. Almost nobody trains this way anymore. I still do, because it works on everyone.",
+    },
+    {
+      title: "Step two is the one people skip.",
+      body: "Checking for understanding is not a courtesy; it is the step that tells you whether the first one worked. Skip it and you find out weeks later, expensively. I learn contemplatively, so a new process does not land the moment I hear it; it lands once I have turned it over. A pause to confirm is what turns that from a week into ten minutes.",
     },
     {
       title: "Ambiguity costs me more than it costs you.",
@@ -408,6 +412,7 @@ export const operatePage = {
   helps: [
     "Say the goal before the steps.",
     "One thing at a time, with room to confirm before the next.",
+    "Check for understanding rather than asking whether I have questions.",
     "Name the done-state.",
     "Put it in writing, or let me.",
     "If I stop you to ask what something means, that is the process working, not stalling.",
