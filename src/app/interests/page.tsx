@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { identity, interestsPage } from "@/content/copy";
@@ -26,46 +25,7 @@ export default function InterestsPage() {
             </p>
           </Reveal>
 
-          <Link
-            href="/photographs"
-            aria-label="See the photographs"
-            className="group mt-16 block"
-          >
-          <div className="grid grid-cols-3 gap-3">
-            <Reveal className="relative aspect-[4/5] overflow-hidden">
-              <Image
-                src="/images/harbor-jetty-fog.jpg"
-                alt="Sun burning through marine-layer fog over a harbor jetty at dawn"
-                fill
-                sizes="33vw"
-                className="object-cover"
-              />
-            </Reveal>
-            <Reveal className="relative aspect-[4/5] overflow-hidden" delay={0.06}>
-              <Image
-                src="/images/pch-sunset.jpg"
-                alt="Red sunrise sky over Pacific Coast Highway, palms and signal lights in silhouette"
-                fill
-                sizes="(min-width: 768px) 50vw, 50vw"
-                className="object-cover"
-              />
-            </Reveal>
-            <Reveal className="relative aspect-[4/5] overflow-hidden" delay={0.12}>
-              <Image
-                src="/images/bluff-aloe.jpg"
-                alt="Aloe and yucca on a bluff over the Pacific, red aloe bloom in the foreground"
-                fill
-                sizes="(min-width: 768px) 50vw, 50vw"
-                className="object-cover"
-              />
-            </Reveal>
-          </div>
-          <p className="mt-3 text-[14px] text-muted transition-colors group-hover:text-ink">
-            {interestsPage.stripNote}
-          </p>
-          </Link>
-
-          <ul className="mt-20 max-w-[62ch]">
+          <ul className="mt-16 max-w-[62ch]">
             {interestsPage.items.map((item, index) => (
               <li
                 key={item.title}

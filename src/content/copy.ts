@@ -3,6 +3,7 @@ export const nav = {
   interests: "Interests",
   studios: "Studios",
   doorfront: "Doorfront",
+  photographs: "Photographs",
 } as const;
 
 export const routes = [
@@ -10,6 +11,7 @@ export const routes = [
   { href: "/interests", label: nav.interests },
   { href: "/studios", label: nav.studios },
   { href: "/doorfront", label: nav.doorfront },
+  { href: "/photographs", label: nav.photographs },
 ] as const;
 
 export const identity = {
@@ -247,7 +249,6 @@ export const interestsPage = {
   heading: "Things I actually do",
   intro:
     "Not a list of aspirations. These are the things I spend real hours on. Most of them are the same activity wearing different clothes: incomplete information, a decision anyway, and a scoreboard afterward. The rest are maintenance on the machine that does the deciding.",
-  stripNote: "More photographs",
   items: [
     {
       title: "Chess",
