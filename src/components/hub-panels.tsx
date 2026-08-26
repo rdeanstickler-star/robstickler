@@ -36,14 +36,6 @@ export function HubPanels() {
           alt="Close view of still water in a steel cold plunge"
         />
       </Reveal>
-      <Reveal className="h-full md:col-span-5" delay={0.1}>
-        <Panel
-          href="/doorfront"
-          title={hub.panels.doorfront.title}
-          sentence={hub.panels.doorfront.sentence}
-          compact
-        />
-      </Reveal>
     </div>
   );
 }

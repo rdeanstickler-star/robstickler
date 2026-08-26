@@ -2,11 +2,9 @@ export const nav = {
   artifacts: "Artifacts",
   interests: "Interests",
   studios: "Studios",
-  doorfront: "Doorfront",
   photographs: "Photographs",
   work: "Work",
   operate: "How I operate",
-  method: "Method",
 } as const;
 
 export const routes = [
@@ -14,10 +12,8 @@ export const routes = [
   { href: "/artifacts", label: nav.artifacts },
   { href: "/interests", label: nav.interests },
   { href: "/studios", label: nav.studios },
-  { href: "/doorfront", label: nav.doorfront },
   { href: "/photographs", label: nav.photographs },
   { href: "/how-i-operate", label: nav.operate },
-  { href: "/method", label: nav.method },
 ] as const;
 
 export const identity = {
@@ -56,11 +52,6 @@ export const hub = {
     studios: {
       title: "Studios",
       sentence: "Your studio is worth more than it is running at.",
-    },
-    doorfront: {
-      title: "Doorfront",
-      sentence:
-        "Method and tooling I built for local service businesses. A side project — no entity, no clients.",
     },
   },
 } as const;
@@ -496,21 +487,6 @@ export const methodPage = {
   versions: [
     "v1.0, 2026-08-26. Initial. Scope: essays and articles going forward; site-build colophon adopted site-wide.",
   ],
-} as const;
-
-export const doorfrontPage = {
-  title: "Doorfront Digital",
-  description:
-    "A side project: method and tooling for local service businesses. No entity, no clients.",
-  ogHeadline: "Doorfront Digital",
-  heading: "Doorfront Digital",
-  body: [
-    "Doorfront Digital is a working brand I am building for local service businesses, the ones with real customers and a digital front door that is quietly costing them money. Websites, listings, booking flows, the operations underneath. I have built the method and the tooling.",
-    "It is not a company. There is no entity, no team, no pricing page, and no client list, because I have not taken a paying engagement yet and I am not going to represent it as more than it is. If that ever changes, this page changes with it.",
-    "It is also a side project, and it stays one. Full-time work comes first and gets the good hours. Doorfront gets what is left, and it is built to be set down. If you are reading this while considering me for a role: this is how I spend spare time on the problem I would rather be paid to solve, not a business waiting for me to leave.",
-  ],
-  toContact:
-    "If you want to talk about it, use the same conversation form as the rest of this site.",
 } as const;
 
 export type OrgNode = {
