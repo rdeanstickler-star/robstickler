@@ -42,16 +42,30 @@ export const hub = {
     artifacts: {
       title: "Artifacts",
       sentence:
-        "Systems I specified, directed, and shipped. The work is on the next page.",
+        "Systems I specified, directed, and shipped. Each one runs without me and reports when it breaks.",
+    },
+    work: {
+      title: "Work",
+      sentence:
+        "Four chapters of it, with photographs from the rooms where it happened.",
+    },
+    operate: {
+      title: "How I operate",
+      sentence:
+        "A short manual for working with me. The training method is from 1998 and I still use it.",
+    },
+    photographs: {
+      title: "Photographs",
+      sentence: "Pictures I have taken. Mostly a phone, mostly outside, mostly early.",
+    },
+    studios: {
+      title: "Studios",
+      sentence: "Your studio is worth more than it is running at.",
     },
     interests: {
       title: "Interests",
       sentence:
         "Incomplete information, a decision anyway, and a scoreboard afterward.",
-    },
-    studios: {
-      title: "Studios",
-      sentence: "Your studio is worth more than it is running at.",
     },
   },
 } as const;

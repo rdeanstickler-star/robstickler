@@ -5,96 +5,123 @@ import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { hub } from "@/content/copy";
 
-export function HubPanels() {
-  return (
-    <div className="mt-16 grid grid-cols-1 items-stretch gap-3 md:grid-cols-12">
-      <Reveal className="h-full md:col-span-7 md:row-span-3">
-        <Panel
-          href="/artifacts"
-          title={hub.panels.artifacts.title}
-          sentence={hub.panels.artifacts.sentence}
-          image="/images/desk.jpg"
-          alt="A closed black notebook, steel pen, and glass of water on a dark desk"
-          lead
-        />
-      </Reveal>
-      <Reveal className="h-full md:col-span-5" delay={0.05}>
-        <Panel
-          href="/interests"
-          title={hub.panels.interests.title}
-          sentence={hub.panels.interests.sentence}
-          image="/images/harbor-sunrise.jpg"
-          alt="Sunrise over the Dana Point harbor from the bluff top, marina below"
-        />
-      </Reveal>
-      <Reveal className="h-full md:col-span-5" delay={0.08}>
-        <Panel
-          href="/studios"
-          title={hub.panels.studios.title}
-          sentence={hub.panels.studios.sentence}
-          image="/images/water.jpg"
-          alt="Close view of still water in a steel cold plunge"
-        />
-      </Reveal>
-    </div>
-  );
-}
-
-function Panel({
-  href,
-  title,
-  sentence,
-  image,
-  alt,
-  lead = false,
-  compact = false,
-}: {
+type Tile = {
   href: string;
   title: string;
   sentence: string;
-  image?: string;
-  alt?: string;
+  image: string;
+  alt: string;
+  span: string;
+  height: string;
+  sizes: string;
   lead?: boolean;
-  compact?: boolean;
-}) {
+  priority?: boolean;
+};
+
+const tiles: Tile[] = [
+  {
+    href: "/artifacts",
+    title: hub.panels.artifacts.title,
+    sentence: hub.panels.artifacts.sentence,
+    image: "/images/photos/photo-03.jpg",
+    alt: "A full moon in a black sky",
+    span: "md:col-span-7 md:row-span-2",
+    height: "min-h-[340px] md:min-h-[652px]",
+    sizes: "(min-width: 768px) 58vw, 100vw",
+    lead: true,
+    priority: true,
+  },
+  {
+    href: "/work",
+    title: hub.panels.work.title,
+    sentence: hub.panels.work.sentence,
+    image: "/images/work/plunge-sign.jpg",
+    alt: "A storefront sign laid flat on the pavement before installation",
+    span: "md:col-span-5",
+    height: "min-h-[240px] md:min-h-[320px]",
+    sizes: "(min-width: 768px) 42vw, 100vw",
+  },
+  {
+    href: "/how-i-operate",
+    title: hub.panels.operate.title,
+    sentence: hub.panels.operate.sentence,
+    image: "/images/work/rei-board.jpg",
+    alt: "A classroom whiteboard headed Welcome to Basic Training",
+    span: "md:col-span-5",
+    height: "min-h-[240px] md:min-h-[320px]",
+    sizes: "(min-width: 768px) 42vw, 100vw",
+  },
+  {
+    href: "/photographs",
+    title: hub.panels.photographs.title,
+    sentence: hub.panels.photographs.sentence,
+    image: "/images/photos/photo-01.jpg",
+    alt: "A lenticular cloud capping a snow-covered mountain at dusk",
+    span: "md:col-span-4",
+    height: "min-h-[240px] md:min-h-[300px]",
+    sizes: "(min-width: 768px) 33vw, 100vw",
+  },
+  {
+    href: "/studios",
+    title: hub.panels.studios.title,
+    sentence: hub.panels.studios.sentence,
+    image: "/images/work/plunge-red-2024.jpg",
+    alt: "A therapy room lit entirely in deep red light",
+    span: "md:col-span-4",
+    height: "min-h-[240px] md:min-h-[300px]",
+    sizes: "(min-width: 768px) 33vw, 100vw",
+  },
+  {
+    href: "/interests",
+    title: hub.panels.interests.title,
+    sentence: hub.panels.interests.sentence,
+    image: "/images/harbor-sunrise.jpg",
+    alt: "Sunrise over a harbor seen from the bluff above it",
+    span: "md:col-span-4",
+    height: "min-h-[240px] md:min-h-[300px]",
+    sizes: "(min-width: 768px) 33vw, 100vw",
+  },
+];
+
+export function HubPanels() {
   return (
-    <Link
-      href={href}
-      className={`group relative isolate flex h-full flex-col justify-end overflow-hidden border border-line bg-bg-elev p-6 transition-colors hover:border-ink md:p-8 ${
-        lead
-          ? "min-h-[340px] md:min-h-[680px]"
-          : compact
-            ? "min-h-[160px] md:min-h-[200px]"
-            : "min-h-[240px] md:min-h-[320px]"
-      }`}
-    >
-      {image ? (
-        <>
-          <Image
-            src={image}
-            alt={alt ?? ""}
-            fill
-            sizes={lead ? "(min-width: 768px) 58vw, 100vw" : "(min-width: 768px) 42vw, 100vw"}
-            priority={lead}
-            className="-z-20 object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-          />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141618]/88 via-[#141618]/40 to-[#141618]/12" />
-        </>
-      ) : null}
-      <h2
-        className={`font-medium tracking-tight ${
-          image ? "text-white" : ""
-        } ${lead ? "text-3xl md:text-5xl" : "text-2xl md:text-3xl"}`}
-      >
-        {title}
-      </h2>
-      <p
-        className={`mt-3 max-w-[42ch] leading-relaxed ${
-          image ? "text-white/78" : "text-muted"
-        } ${lead ? "text-[16px] md:text-[17px]" : "text-[15px]"}`}
-      >
-        {sentence}
-      </p>
-    </Link>
+    <div className="mt-16 grid grid-cols-1 items-stretch gap-3 md:grid-cols-12">
+      {tiles.map((tile, index) => (
+        <Reveal
+          key={tile.href}
+          className={`h-full ${tile.span}`}
+          delay={Math.min(index * 0.04, 0.16)}
+        >
+          <Link
+            href={tile.href}
+            className={`group relative isolate flex h-full flex-col justify-end overflow-hidden border border-line bg-bg-elev p-6 transition-colors hover:border-ink md:p-8 ${tile.height}`}
+          >
+            <Image
+              src={tile.image}
+              alt={tile.alt}
+              fill
+              sizes={tile.sizes}
+              priority={tile.priority}
+              className="-z-20 object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141618]/88 via-[#141618]/40 to-[#141618]/10" />
+            <h2
+              className={`font-medium tracking-tight text-white ${
+                tile.lead ? "text-3xl md:text-5xl" : "text-2xl md:text-3xl"
+              }`}
+            >
+              {tile.title}
+            </h2>
+            <p
+              className={`mt-3 max-w-[42ch] leading-relaxed text-white/78 ${
+                tile.lead ? "text-[16px] md:text-[17px]" : "text-[15px]"
+              }`}
+            >
+              {tile.sentence}
+            </p>
+          </Link>
+        </Reveal>
+      ))}
+    </div>
   );
 }
