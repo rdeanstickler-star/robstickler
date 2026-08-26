@@ -317,7 +317,7 @@ export type WorkEntry = {
   dates: string;
   body: string;
   photos: WorkPhoto[];
-  video?: { src: string; poster: string; caption: string };
+  videos?: { src: string; poster: string; caption: string; portrait?: boolean }[];
   link?: { label: string; href: string };
 };
 
@@ -354,11 +354,19 @@ export const workEntries: WorkEntry[] = [
       { src: "/images/work/plunge-treatment-2024.jpg", alt: "A treatment room with a therapy table, equipment cart and wall art", caption: "Treatment room." },
       { src: "/images/work/plunge-red-2024.jpg", alt: "A therapy pod in a room lit entirely in deep red light", caption: "Red light room." },
     ],
-    video: {
-      src: "/video/plunge-training.mp4",
-      poster: "/images/work/plunge-training-poster.jpg",
-      caption: "Thirty seconds of the actual job: walking a general audience through a routine temperature change on a plunge.",
-    },
+    videos: [
+      {
+        src: "/video/plunge-training.mp4",
+        poster: "/images/work/plunge-training-poster.jpg",
+        caption: "Thirty seconds of the actual job: walking a general audience through a routine temperature change on a plunge.",
+      },
+      {
+        src: "/video/plunge-teaching.mp4",
+        poster: "/images/work/plunge-teaching-poster.jpg",
+        portrait: true,
+        caption: "Coaching a first-timer through the hard part. From a guest's video, used with permission. The method is the point: name the difficulty first, give the real timeline, then explain why it gets better.",
+      },
+    ],
   },
   {
     role: "Training, Service Assurance & Online Sales Operations Specialist",

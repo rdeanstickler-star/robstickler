@@ -83,24 +83,31 @@ export default function WorkPage() {
                   </div>
                 ) : null}
 
-                {entry.video ? (
-                  <Reveal>
-                    <figure className="mt-10 max-w-[900px]">
-                      <video
-                        controls
-                        preload="none"
-                        playsInline
-                        poster={entry.video.poster}
-                        className="w-full border border-line bg-bg-elev"
+                {entry.videos?.length ? (
+                  <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-start">
+                    {entry.videos.map((video) => (
+                      <Reveal
+                        key={video.src}
+                        className={video.portrait ? "md:w-[300px] md:shrink-0" : "md:flex-1"}
                       >
-                        <source src={entry.video.src} type="video/mp4" />
-                        Your browser cannot play this video.
-                      </video>
-                      <figcaption className="mt-2 max-w-[62ch] text-[13px] leading-relaxed text-muted">
-                        {entry.video.caption}
-                      </figcaption>
-                    </figure>
-                  </Reveal>
+                        <figure>
+                          <video
+                            controls
+                            preload="none"
+                            playsInline
+                            poster={video.poster}
+                            className="w-full border border-line bg-bg-elev"
+                          >
+                            <source src={video.src} type="video/mp4" />
+                            Your browser cannot play this video.
+                          </video>
+                          <figcaption className="mt-2 max-w-[52ch] text-[13px] leading-relaxed text-muted">
+                            {video.caption}
+                          </figcaption>
+                        </figure>
+                      </Reveal>
+                    ))}
+                  </div>
                 ) : null}
               </article>
             ))}
