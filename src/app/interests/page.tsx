@@ -26,7 +26,12 @@ export default function InterestsPage() {
             </p>
           </Reveal>
 
-          <div className="mt-16 grid grid-cols-3 gap-3">
+          <Link
+            href="/photographs"
+            aria-label="See the photographs"
+            className="group mt-16 block"
+          >
+          <div className="grid grid-cols-3 gap-3">
             <Reveal className="relative aspect-[4/5] overflow-hidden">
               <Image
                 src="/images/harbor-jetty-fog.jpg"
@@ -55,6 +60,10 @@ export default function InterestsPage() {
               />
             </Reveal>
           </div>
+          <p className="mt-3 text-[14px] text-muted transition-colors group-hover:text-ink">
+            {interestsPage.stripNote}
+          </p>
+          </Link>
 
           <ul className="mt-20 max-w-[62ch]">
             {interestsPage.items.map((item, index) => (
@@ -69,6 +78,16 @@ export default function InterestsPage() {
                   <p className="mt-3 text-[16px] leading-relaxed text-muted">
                     {item.body}
                   </p>
+                  {"href" in item && item.href ? (
+                    <p className="mt-3 text-[15px]">
+                      <Link
+                        href={item.href}
+                        className="text-ink underline decoration-accent/70 underline-offset-4 transition-colors hover:text-accent"
+                      >
+                        {item.linkLabel}
+                      </Link>
+                    </p>
+                  ) : null}
                 </Reveal>
               </li>
             ))}

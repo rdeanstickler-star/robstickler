@@ -247,6 +247,7 @@ export const interestsPage = {
   heading: "Things I actually do",
   intro:
     "Not a list of aspirations. These are the things I spend real hours on. Most of them are the same activity wearing different clothes: incomplete information, a decision anyway, and a scoreboard afterward. The rest are maintenance on the machine that does the deciding.",
+  stripNote: "More photographs",
   items: [
     {
       title: "Chess",
@@ -274,7 +275,9 @@ export const interestsPage = {
     },
     {
       title: "Photographs",
-      body: "I like taking pictures. Mostly with my phone, mostly outside, mostly early. There is a page of them if you want to look.",
+      body: "I like taking pictures. Mostly with my phone, mostly outside, mostly early.",
+      href: "/photographs",
+      linkLabel: "See the photographs",
     },
     {
       title: "Trails and beach walks",
