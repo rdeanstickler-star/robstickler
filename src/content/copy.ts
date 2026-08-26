@@ -359,7 +359,7 @@ export const workEntries: WorkEntry[] = [
     },
   },
   {
-    role: "Customer Service & Online Sales Specialist",
+    role: "Training and Service Assurance and Online Sales Operations Specialist",
     org: "REI Co-op, Sumner, WA",
     dates: "Sep 2003 to Jun 2020",
     body: "Seventeen years, advancing from call-center agent through Online Sales, Training, Service Assurance, and Customer Service Escalation Specialist. I delivered contact-center training for over a decade, which is what the classroom pictures are.",
