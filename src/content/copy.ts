@@ -273,6 +273,10 @@ export const interestsPage = {
       body: "Daily, and usually next to the cold. Two minutes of slow exhales changes what the plunge costs, and knowing that firsthand is worth more than citing a study about it.",
     },
     {
+      title: "Photographs",
+      body: "I like taking pictures. Mostly with my phone, mostly outside, mostly early. There is a page of them if you want to look.",
+    },
+    {
       title: "Trails and beach walks",
       body: "The Orange County coastline, most days. It is where the hard problems get worked on without a screen in front of them.",
     },
@@ -285,6 +289,17 @@ export const interestsPage = {
       body: "I have run 27 books through a distillation system that maps an author's framework onto my own. The first run caught two fabricated claims in its own output on a verification pass. That result is why I trust the system a little more and the model a little less.",
     },
   ],
+} as const;
+
+export const photographsPage = {
+  title: "Photographs",
+  description:
+    "Pictures I have taken, mostly on my phone. A hobby, not a second job.",
+  ogHeadline: "Photographs",
+  heading: "Photographs",
+  intro:
+    "I like taking pictures. These days it is usually just whatever phone is in my pocket. Here are some of my favorites.",
+  empty: "Nothing here yet.",
 } as const;
 
 export const doorfrontPage = {
