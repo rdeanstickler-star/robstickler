@@ -26,8 +26,9 @@ export const identity = {
   resumeLabel: "Résumé",
   resumeHref: "/resume",
   conversation: "Start a conversation",
+  disclosureLabel: "How this site was made:",
   disclosure:
-    "Written with AI. The substance, the claims, and the rulings are mine.",
+    "I specified it, directed the build, and corrected the output. The claims are mine and verified.",
 } as const;
 
 export const hub = {

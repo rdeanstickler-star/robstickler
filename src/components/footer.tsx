@@ -38,6 +38,7 @@ export function Footer() {
       </div>
       <div className="mx-auto max-w-[1400px] px-5 pb-8 md:px-8">
         <p className="max-w-[62ch] text-[13px] leading-relaxed text-muted">
+          <span className="text-ink">{identity.disclosureLabel}</span>{" "}
           {identity.disclosure}
         </p>
       </div>
