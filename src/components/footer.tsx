@@ -10,7 +10,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto flex max-w-[1400px] flex-col gap-4 px-5 py-8 md:flex-row md:items-center md:justify-between md:px-8">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-4 px-5 pt-8 pb-4 md:flex-row md:items-center md:justify-between md:px-8">
         <p className="text-[14px] text-muted">{site.name}</p>
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[14px]">
           <Link href={contactHref} className="text-ink">
@@ -35,6 +35,11 @@ export function Footer() {
             {identity.resumeLabel}
           </a>
         </div>
+      </div>
+      <div className="mx-auto max-w-[1400px] px-5 pb-8 md:px-8">
+        <p className="max-w-[62ch] text-[13px] leading-relaxed text-muted">
+          {identity.disclosure}
+        </p>
       </div>
     </footer>
   );

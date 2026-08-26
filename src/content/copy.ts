@@ -26,6 +26,8 @@ export const identity = {
   resumeLabel: "Résumé",
   resumeHref: "/resume",
   conversation: "Start a conversation",
+  disclosure:
+    "Written with AI. The substance, the claims, and the rulings are mine.",
 } as const;
 
 export const hub = {
@@ -398,6 +400,8 @@ export const operatePage = {
   heading: "How I operate",
   intro:
     "A short manual for working with me. It exists because the thing that makes me effective is also the thing most easily lost in a bad handoff.",
+  framing:
+    "If you work with AI, you have probably been told to keep a file that tells the model who you are and how you work, so it stops guessing and gets useful sooner. This is that file, pointed at people instead. Read it once and we skip the discovery phase.",
   sections: [
     {
       title: "The best training method I know, I learned at Pizza Hut.",
@@ -434,8 +438,6 @@ export const operatePage = {
     "I will still work with you well inside a clear arrangement: defined scope, defined outcome, no drama. What suffers is open-ended collaboration, which needs shared precision to be worth anything.",
   closing:
     "If you already write things down and say what you mean, none of this costs you a thing. You just get the version of me that builds the process out, and then improves it.",
-  disclaimer:
-    "I did not write the prose on this page. I inspired it. An AI crafted and finished the writing.",
 } as const;
 
 export const doorfrontPage = {

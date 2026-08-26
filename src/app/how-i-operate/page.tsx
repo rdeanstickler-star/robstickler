@@ -23,6 +23,9 @@ export default function OperatePage() {
             <p className="mt-8 max-w-[58ch] text-[17px] leading-relaxed text-muted md:text-[19px]">
               {operatePage.intro}
             </p>
+            <p className="mt-5 max-w-[58ch] text-[16px] leading-relaxed text-muted md:text-[17px]">
+              {operatePage.framing}
+            </p>
           </Reveal>
 
           <div className="mt-16 max-w-[62ch]">
@@ -76,9 +79,6 @@ export default function OperatePage() {
             <Reveal>
               <p className="border-t border-line pt-10 text-[17px] leading-relaxed text-ink md:text-[19px]">
                 {operatePage.closing}
-              </p>
-              <p className="mt-12 border-t border-line pt-6 text-[13px] leading-relaxed text-muted">
-                {operatePage.disclaimer}
               </p>
             </Reveal>
           </div>
