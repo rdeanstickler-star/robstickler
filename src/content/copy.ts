@@ -90,6 +90,26 @@ export const hub = {
   },
 } as const;
 
+export const endorsement = {
+  heading: "Don't take my word for it.",
+  intro:
+    "Robert C. Martin, the author of Clean Code, on AI agents and the people who direct them:",
+  name: "Uncle Bob Martin",
+  handle: "@unclebobmartin",
+  date: "4:30 AM \u00b7 Aug 29, 2026",
+  href: "https://x.com/unclebobmartin/status/2093662611329933576",
+  quote: [
+    "I\u2019m not sure I\u2019d call it a debate. I think it\u2019s too asymmetric for that.",
+    "On one side you have significant evidence that workable high-quality systems can be efficiently created by AI agents driven by disciplined humans who don\u2019t spend a lot of time reading the code.",
+    "On the other side you have emotional predictions of the doom and disaster that will be caused by AI slop; but no evidence contradicting the above.",
+    "It is certainly true that humans can drive agents to create horrible messes. It\u2019s also certainly true that humans can create horrible messes all by themselves.",
+    "Disciplined humans create good systems, regardless of whether they use agents or not. Those who use agents are simply more productive.",
+    "IMHO.",
+  ],
+  takeaway:
+    "He writes code. I direct it. The discipline he is naming is what the rest of this site documents.",
+} as const;
+
 export const artifactsPage = {
   title: "Proof",
   description: "Systems I have specified, directed, and shipped.",
