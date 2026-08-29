@@ -48,6 +48,18 @@ export default function WorkPage() {
                   <p className="mt-5 max-w-[62ch] text-[16px] leading-relaxed text-muted md:text-[17px]">
                     {entry.body}
                   </p>
+                  {entry.points?.length ? (
+                    <ul className="mt-5 flex max-w-[62ch] list-disc flex-col gap-2 pl-5">
+                      {entry.points.map((point) => (
+                        <li
+                          key={point}
+                          className="text-[15px] leading-relaxed text-muted"
+                        >
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                   {entry.link ? (
                     <p className="mt-4 text-[15px]">
                       <Link

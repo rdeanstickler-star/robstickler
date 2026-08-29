@@ -8,7 +8,7 @@ export function generateMetadata() {
   return pageMetadata({
     title: artifactsPage.title,
     description: artifactsPage.description,
-    path: "/artifacts",
+    path: "/proof",
   });
 }
 

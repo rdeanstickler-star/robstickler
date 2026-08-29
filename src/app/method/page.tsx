@@ -3,11 +3,15 @@ import { methodPage } from "@/content/copy";
 import { pageMetadata } from "@/lib/metadata";
 
 export function generateMetadata() {
-  return pageMetadata({
-    title: methodPage.title,
-    description: methodPage.description,
-    path: "/method",
-  });
+  return {
+    ...pageMetadata({
+      title: methodPage.title,
+      description: methodPage.description,
+      path: "/method",
+    }),
+    // Held out of the index until Rob rules the page live.
+    robots: { index: false, follow: false },
+  };
 }
 
 function Pairs({ items }: { items: readonly { k: string; v: string }[] }) {
@@ -28,6 +32,18 @@ function Pairs({ items }: { items: readonly { k: string; v: string }[] }) {
 }
 
 export default function MethodPage() {
+  // Until Rob's own story exists, the self-description must not refer to it.
+  const groups = methodPage.story
+    ? methodPage.groups
+    : methodPage.groups.map((group) =>
+        group.label === "This page"
+          ? {
+              ...group,
+              items: [{ k: "How it was made", v: methodPage.thisPageNoStory }],
+            }
+          : group,
+      );
+
   return (
     <main id="main">
       <section>
@@ -49,7 +65,7 @@ export default function MethodPage() {
                 {methodPage.doesHeading}
               </h2>
               <div className="mt-6 flex flex-col gap-10">
-                {methodPage.groups.map((group) => (
+                {groups.map((group) => (
                   <div key={group.label}>
                     <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-muted">
                       {group.label}

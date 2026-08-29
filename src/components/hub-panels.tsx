@@ -20,7 +20,7 @@ type Tile = {
 
 const tiles: Tile[] = [
   {
-    href: "/artifacts",
+    href: "/proof",
     title: hub.panels.artifacts.title,
     sentence: hub.panels.artifacts.sentence,
     image: "/images/photos/photo-03.jpg",

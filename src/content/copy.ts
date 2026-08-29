@@ -1,5 +1,5 @@
 export const nav = {
-  artifacts: "Artifacts",
+  artifacts: "Proof",
   interests: "Interests",
   studios: "Studios",
   photographs: "Photographs",
@@ -9,11 +9,11 @@ export const nav = {
 
 export const routes = [
   { href: "/work", label: nav.work },
-  { href: "/artifacts", label: nav.artifacts },
-  { href: "/interests", label: nav.interests },
-  { href: "/studios", label: nav.studios },
-  { href: "/photographs", label: nav.photographs },
+  { href: "/proof", label: nav.artifacts },
   { href: "/how-i-operate", label: nav.operate },
+  { href: "/studios", label: nav.studios },
+  { href: "/interests", label: nav.interests },
+  { href: "/photographs", label: nav.photographs },
 ] as const;
 
 export const identity = {
@@ -55,12 +55,12 @@ export const hub = {
   ],
   doors: [
     { href: "/work", label: "Work" },
-    { href: "/artifacts", label: "Artifacts" },
+    { href: "/proof", label: "Proof" },
     { href: "/how-i-operate", label: "How I operate" },
   ],
   panels: {
     artifacts: {
-      title: "Artifacts",
+      title: "Proof",
       sentence:
         "Systems I specified, directed, and shipped. Each one runs without me and reports when it breaks.",
     },
@@ -91,7 +91,7 @@ export const hub = {
 } as const;
 
 export const artifactsPage = {
-  title: "Artifacts",
+  title: "Proof",
   description: "Systems I have specified, directed, and shipped.",
   ogHeadline: "Systems I specified, directed, and shipped.",
   heading: "Systems I have built and run",
@@ -154,17 +154,6 @@ export const artifacts: Artifact[] = [
       "1,122 pages / 8,154 chunks / 117 tags, ingested from 2,669 source files. Pipeline log is 24,904 lines. Embedding coverage is currently 67%. The balance ran out, my Watchdog caught it, and it is on the list.",
   },
   {
-    date: "Since April 2026",
-    title: "Hermes / Max: always-on agent",
-    does: "A persistent agent on my laptop running on its own schedule. Nightly task review, email watching, deliverability monitoring. It messages me on Telegram when something needs a human.",
-    orchestrated:
-      "The framework is Nous Research's open-source hermes-agent, not mine. What is mine: a persona file and an eight-rule interaction contract written around how my own attention actually works (\"limit every exchange to 2-3 variables,\" \"one paste target per code block,\" \"define the done state\"), 11 cron jobs, 9 custom job scripts, a three-layer architecture with a standing \"freeze and layer, never restructure\" rule, and explicit refusal constraints so it does not propose nice-to-have automation.",
-    stack:
-      "hermes-agent (Python), SQLite with full-text search, launchd, Telegram gateway, 29 skill categories.",
-    evidence:
-      "1,884 sessions / 7,863 messages / 1,920 tool calls between 2026-04-21 and today. 1,840 of those sessions fired from cron, not from me. One job ran 1,348 times. Honest status: 10 of 11 jobs are paused and the last active one has failed 8 straight nights on network and credit-balance errors. It ran unattended for four months and is now in a documented failure state that my own audit system caught before I did.",
-  },
-  {
     date: "August 2026",
     recent: true,
     title: "The agent organization",
@@ -176,16 +165,6 @@ export const artifacts: Artifact[] = [
     evidence:
       "18 seats and lanes on the chart. Five ratified charters, 17 sections of written law, 18 ledger event types, about 713 KB of append-only event history, and a protocol-enforcement package at 285/285 tests, hash-pinned at ratification. First muster 2026-08-08. Honest status: the organization is weeks old, not years; the law and the ledgers are real, and long-run operation is still being proven.",
     links: [{ label: "The public chart", href: "/org" }],
-  },
-  {
-    date: "July–August 2026",
-    title: "Agent fan-out at scale",
-    does: "For large jobs I run workflows that spawn dozens of parallel subagents, each with its own task, then merge what comes back.",
-    orchestrated:
-      "The decomposition. Deciding what fans out, across which projects, and what has to come back before the next stage can start.",
-    stack: "Claude Code subagent workflows, JSONL journals per run.",
-    evidence:
-      "61 workflow journals, 1,930 events, 1,037 subagent launches, spanning 2026-07-03 to 2026-08-11. Largest single run: 86 agents.",
   },
   {
     date: "Since June 2026",
@@ -212,30 +191,6 @@ export const artifacts: Artifact[] = [
     links: [
       { label: "Live scoreboard", href: "https://bestiescorecard.com" },
     ],
-  },
-  {
-    date: "July 2026",
-    title: "Poker Coach and Chess Coach",
-    does: "Two training apps, both fully offline in the browser. The poker app deals a 10-handed sit-n-go against 9 AI opponents and grades every decision afterward against position-based range charts and real pot odds versus a Monte Carlo equity estimate, tracking recurring leaks over time. The chess app runs a real engine locally with drills and an opening trainer.",
-    orchestrated:
-      "Both were built by agents against a spec I wrote. The poker spec is a multi-agent contract, not a design doc. It assigns modules to named agents and requires each one to report any interface deviation so the integrator can reconcile it. That is the part I would want to be judged on.",
-    stack:
-      "Poker: 12 JS modules, 10 headless Node test files, Monte Carlo equity, range charts. Chess: Stockfish 17.1 WASM vendored locally, chess.js, the full lichess ECO opening book (3,807 named lines).",
-    evidence: "Both live and playable. Built end of July over about three days.",
-    links: [
-      { label: "Poker Coach", href: "https://poker-coach-khaki.vercel.app" },
-      { label: "Chess Coach", href: "https://chess-coach-delta.vercel.app" },
-    ],
-  },
-  {
-    title: "Studio back-office automation",
-    does: "Browser-automation skills that close out every scheduled appointment, pull the daily sales report, and rebuild an attendance tracker spreadsheet from the raw booking report.",
-    orchestrated:
-      "The failure modes, which is the whole value. Do not pixel-guess on the calendar grid. The appointment bars are inside an iframe and clicking gaps opens booking dialogs and color pickers. If the color picker opens, press Escape, never click Cancel, because Cancel lands on the status color squares and re-triggers it. Two consecutive misses means stop clicking and query the iframe directly. And one domain rule no agent would ever infer: count all booked plunge appointments regardless of check-in status, because customers show up and staff forget to check them in.",
-    stack:
-      "Chrome MCP browser automation, JavaScript DOM extraction through a nested iframe, Python scripts writing an xlsx with daily/weekly/monthly rollups.",
-    evidence:
-      "Four packaged skills on disk plus a scheduled task. Tracker covers 2024-11 through 2026-12 daily across three named tubs. I have no run counter for these.",
   },
   {
     date: "July 2026",
@@ -266,7 +221,7 @@ export const artifacts: Artifact[] = [
     evidence:
       "It is live at this URL. I caught an invented career number, a canonical URL pointed at a domain I do not own, and a static picture standing in for a real Open Graph route. Those are fixed. The repo is public, and the four prompts that produced the first build are preserved verbatim in my Grok session history. The second build of this site was done by an agent that stated a plan, asked 11 questions, and then started building before I answered them. I kept the work and noted the gap. That is what directing agents actually looks like.",
     links: [
-      { label: "This site", href: "https://robstickler.vercel.app" },
+      { label: "This site", href: "https://robstickler.com" },
       {
         label: "Source",
         href: "https://github.com/rdeanstickler-star/robstickler",
@@ -287,10 +242,14 @@ export const interestsPage = {
     {
       title: "Chess",
       body: "Chess club as a kid, several hours a day. I came back to it this year and I am training two- and five-minute blitz. I built myself a coach for it rather than buying one.",
+      href: "https://chess-coach-delta.vercel.app",
+      linkLabel: "The coach I built",
     },
     {
       title: "Poker",
       body: "Same appeal as chess with the information removed. I care more about whether a decision was correct than whether the hand won, which is why the app I built grades the decision and not the result.",
+      href: "https://poker-coach-khaki.vercel.app",
+      linkLabel: "The app that grades me",
     },
     {
       title: "Football and baseball, instrumented",
@@ -346,6 +305,7 @@ export type WorkEntry = {
   org: string;
   dates: string;
   body: string;
+  points?: string[];
   photos: WorkPhoto[];
   videos?: { src: string; poster: string; caption: string; portrait?: boolean }[];
   link?: { label: string; href: string };
@@ -369,7 +329,12 @@ export const workEntries: WorkEntry[] = [
     dates: "Jun 2026 to present",
     body: "Building and running AI systems that do real operational work, then checking their output. The evidence for this chapter is not photographs; it is the systems themselves.",
     photos: [],
-    link: { label: "See the artifacts", href: "/artifacts" },
+    points: [
+      "Shipped PulseResume, an open-source r\u00e9sum\u00e9 builder with 197 automated tests and a public repo, live at pulseresume.netlify.app.",
+      "Built and runs BestieScorecard, a public scoreboard that transcribes a podcast's episodes, extracts the hosts' predictions, and scores them once they resolve, at bestiescorecard.com.",
+      "Stood up an organization of AI agents under written law: named seats, append-only event ledgers, and a protocol test suite passing 285/285, hash-pinned at ratification.",
+    ],
+    link: { label: "See the proof", href: "/proof" },
   },
   {
     role: "Studio Manager",
@@ -477,6 +442,8 @@ export const methodPage = {
   // Rob's own typed sentences. Intentionally empty until he delivers them:
   // AI-drafted prose here would falsify the page's own claim.
   story: "",
+  thisPageNoStory:
+    "The tables and definitions here were assembled with AI assistance and approved by me.",
   doesHeading: "What the AI does and does not do",
   groups: [
     {
@@ -634,7 +601,7 @@ export const orgPage = {
         },
         {
           name: "Ringo, The Foundries",
-          note: "Keeper of the idea foundry (1,115 catalogued ideas) and the skill foundry (297 skills, dashboard-tracked).",
+          note: "Keeper of the idea foundry and the skill foundry.",
         },
       ] as OrgNode[],
     },

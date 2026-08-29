@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         destination: "/Rob-Stickler-Resume.pdf",
         permanent: false,
       },
+      {
+        source: "/artifacts",
+        destination: "/proof",
+        permanent: true,
+      },
     ];
   },
 };
