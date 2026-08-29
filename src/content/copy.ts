@@ -37,7 +37,7 @@ export const hub = {
   ogHeadline:
     "I don't write the code. I design the system that writes it, and I check its work.",
   career:
-    "Twenty months running a wellness studio end to end. Seventeen years at REI Co-op. And a Pizza Hut restaurant with thirty people, full P&L, and 40% year-over-year growth.",
+    "Three and a half years running a wellness studio end to end. Seventeen years at REI Co-op. And a Pizza Hut restaurant with thirty people, full P&L, and 40% year-over-year growth.",
   panels: {
     artifacts: {
       title: "Artifacts",

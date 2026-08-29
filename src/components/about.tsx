@@ -21,11 +21,11 @@ export function About() {
           </h2>
           <div className="mt-8 max-w-[62ch] space-y-5 text-[16px] leading-relaxed text-muted md:text-[17px]">
             <p>
-              I operated Plunge Performance & Recovery in Dana Point for twenty
-              months. Staffing, scheduling, sales, the site, the numbers. That
-              chapter is closed; the operating data came with me and it is mine
-              to show. Before that, seventeen years at REI Co-op, and a Pizza
-              Hut restaurant with thirty people and full P&L.
+              I operated Plunge Performance & Recovery in Dana Point for three
+              and a half years, from build-out in 2022 to May 2026. Staffing,
+              scheduling, sales, the site, the numbers. That chapter is closed.
+              Before that, seventeen years at REI Co-op, and a Pizza Hut
+              restaurant with thirty people and full P&L.
             </p>
             <p>
               I use cold, heat, and light every day. That is not a brand
@@ -38,9 +38,8 @@ export function About() {
               makes sure the work happens.
             </p>
             <p>
-              This page claims one studio&apos;s books and what I learned
-              running them — not client results, because there are not any
-              yet. Full-time operating work is what I am built for and what
+              This page claims what running one studio taught me, not client
+              results, because there are not any yet. Full-time operating work is what I am built for and what
               comes first; consulting runs alongside it when it fits. If there
               is ever a client result to show, it will be here.
             </p>

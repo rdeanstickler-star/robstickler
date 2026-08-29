@@ -1,17 +1,20 @@
 import { Reveal } from "@/components/reveal";
 
-const stats = [
+const questions = [
   {
-    value: "61-22",
-    label: "Members left sitting in the data. The leak was not the front door.",
+    index: "01",
+    ask: "How many members joined in the last year, and how many are still active this month?",
+    read: "Most of the loss never walks out the front door. It sits in the booking data, unworked.",
   },
   {
-    value: "$1,883",
-    label: "Lifetime value of one member. Forty drop-ins, or one person who stays.",
+    index: "02",
+    ask: "What does one member who stays pay you over their life, next to one drop-in?",
+    read: "Retention is where the money is. Acquisition gets the attention anyway.",
   },
   {
-    value: "$20.7k",
-    label: "Monthly ceiling already proven. The floor was running at $8.8k.",
+    index: "03",
+    ask: "What was your best month, and what are you running at now?",
+    read: "The gap between those two numbers is the job.",
   },
 ];
 
@@ -21,30 +24,32 @@ export function Proof() {
       <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-8 md:py-28">
         <Reveal>
           <h2 className="max-w-[18ch] text-3xl font-medium tracking-tight md:text-4xl">
-            What twenty months of one studio&apos;s books actually said
+            Three questions your books already answer
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-12">
-          {stats.map((stat, index) => (
-            <Reveal
-              key={stat.value}
-              delay={index * 0.06}
-              className={index === 0 ? "md:col-span-12" : "md:col-span-6"}
-            >
-              <p
-                className={`font-mono tracking-tight text-accent ${
-                  index === 0 ? "text-5xl md:text-7xl" : "text-4xl md:text-5xl"
-                }`}
-              >
-                {stat.value}
+        <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-3">
+          {questions.map((question, index) => (
+            <Reveal key={question.index} delay={index * 0.06}>
+              <p className="font-mono text-4xl tracking-tight text-accent md:text-5xl">
+                {question.index}
               </p>
-              <p className="mt-4 max-w-[36ch] text-[15px] leading-relaxed text-muted">
-                {stat.label}
+              <p className="mt-4 max-w-[36ch] text-[16px] leading-relaxed">
+                {question.ask}
+              </p>
+              <p className="mt-3 max-w-[36ch] text-[15px] leading-relaxed text-muted">
+                {question.read}
               </p>
             </Reveal>
           ))}
         </div>
+
+        <Reveal>
+          <p className="mt-14 max-w-[52ch] text-[16px] leading-relaxed text-muted md:text-[17px]">
+            I ran a studio for three and a half years. I know where these
+            answers hide, and what to do once you have them.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

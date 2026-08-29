@@ -26,8 +26,8 @@ export function Hero() {
             transition={{ duration: 0.65, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
             className="reveal mt-5 max-w-[36ch] text-base leading-relaxed text-muted md:text-[17px]"
           >
-            I ran the floor and the books at one studio for twenty months.
-            Everything on this page comes from what its ledger actually said.
+            I ran the floor and the books at one studio for three and a half
+            years. Everything on this page comes from what running it taught me.
           </motion.p>
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 16 }}
