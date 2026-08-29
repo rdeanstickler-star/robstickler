@@ -19,6 +19,8 @@ export const routes = [
 export const identity = {
   operator: "Operator",
   location: "Orange County / Southern California",
+  availability:
+    "Available for operating roles: on-site Southern California, hybrid, or remote.",
   email: "hello@robstickler.com",
   linkedinLabel: "LinkedIn",
   resumeLabel: "Résumé",
@@ -30,14 +32,32 @@ export const identity = {
 } as const;
 
 export const hub = {
-  headline:
-    "I don't write the code. I design the system that writes it, and I check its work.",
+  headline: "I run rooms, books, and the systems that keep both honest.",
   description:
-    "Operator. Seventeen years at REI Co-op, a restaurant P&L before that, and a wellness studio end to end. Now running AI systems that do the work.",
-  ogHeadline:
-    "I don't write the code. I design the system that writes it, and I check its work.",
+    "Operations leader in Orange County. Seventeen years at REI Co-op, a Pizza Hut P&L, and a wellness studio run end to end. Now building the systems that keep the floor honest.",
+  ogHeadline: "I run rooms, books, and the systems that keep both honest.",
   career:
     "Three and a half years running a wellness studio end to end. Seventeen years at REI Co-op. And a Pizza Hut restaurant with thirty people, full P&L, and 40% year-over-year growth.",
+  chips: [
+    {
+      value: "3.5 yrs",
+      label: "A wellness studio run end to end, 2022 to 2026",
+    },
+    {
+      value: "17 yrs",
+      label: "REI Co-op: training, quality assurance, escalations",
+    },
+    {
+      value: "30 people",
+      label:
+        "Pizza Hut GM: full P&L, 40% year-over-year growth, Manager of the Year 1998",
+    },
+  ],
+  doors: [
+    { href: "/work", label: "Work" },
+    { href: "/artifacts", label: "Artifacts" },
+    { href: "/how-i-operate", label: "How I operate" },
+  ],
   panels: {
     artifacts: {
       title: "Artifacts",
@@ -76,7 +96,7 @@ export const artifactsPage = {
   ogHeadline: "Systems I specified, directed, and shipped.",
   heading: "Systems I have built and run",
   intro:
-    "Each one is something I directed into existence. Not a slide. Not a plan.",
+    "I don't write the code. I design the system that writes it, and I check its work. Each one below is something I directed into existence.",
   selfNote:
     "This website is one of them. It is the last card because you are standing in it.",
   featuredNote: "Strongest evidence first. Everything is dated.",

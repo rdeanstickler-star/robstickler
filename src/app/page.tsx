@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Contact } from "@/components/contact";
 import { HubPanels } from "@/components/hub-panels";
 import { Reveal } from "@/components/reveal";
@@ -42,7 +43,7 @@ export default function Home() {
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
             <Reveal className="lg:col-span-8">
               <p className="text-[13px] font-medium tracking-tight text-muted">
-                {identity.operator}
+                {identity.operator} · {identity.location}
               </p>
               <h1 className="mt-5 max-w-[22ch] text-4xl font-medium tracking-tight text-balance md:text-5xl xl:text-6xl xl:leading-[1.05]">
                 {hub.headline}
@@ -50,8 +51,36 @@ export default function Home() {
               <p className="mt-6 max-w-[58ch] text-[16px] leading-relaxed text-muted md:text-[17px]">
                 {hub.career}
               </p>
-              <p className="mt-6 text-[15px] text-muted">{identity.location}</p>
-              <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
+              <p className="mt-4 max-w-[58ch] text-[15px] text-ink">
+                {identity.availability}
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-x-10 gap-y-5">
+                {hub.chips.map((chip) => (
+                  <div key={chip.value}>
+                    <p className="font-mono text-2xl tracking-tight text-accent md:text-3xl">
+                      {chip.value}
+                    </p>
+                    <p className="mt-1 max-w-[26ch] text-[13px] leading-relaxed text-muted">
+                      {chip.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
+                {hub.doors.map((door) => (
+                  <Link
+                    key={door.href}
+                    href={door.href}
+                    className="text-ink underline decoration-accent/70 underline-offset-4 transition-colors hover:text-accent"
+                  >
+                    {door.label}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
                 {isMailto(identity.email) ? (
                   <a href={`mailto:${identity.email}`} className="text-ink">
                     {identity.email}
