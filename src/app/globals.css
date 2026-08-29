@@ -72,3 +72,10 @@ body {
     -webkit-backdrop-filter: none !important;
   }
 }
+
+/* Animated content must not be invisible when scripts never run. The head
+   script stamps .js on <html>; until it has, initial-hidden states are void. */
+html:not(.js) .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}

@@ -16,7 +16,7 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-[16ch] text-4xl font-medium tracking-tight text-balance md:text-5xl xl:text-6xl xl:leading-[1.05]"
+            className="reveal max-w-[16ch] text-4xl font-medium tracking-tight text-balance md:text-5xl xl:text-6xl xl:leading-[1.05]"
           >
             Your studio is worth more than it is running at.
           </motion.h1>
@@ -24,7 +24,7 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-5 max-w-[36ch] text-base leading-relaxed text-muted md:text-[17px]"
+            className="reveal mt-5 max-w-[36ch] text-base leading-relaxed text-muted md:text-[17px]"
           >
             I ran the floor and the books at one studio for twenty months.
             Everything on this page comes from what its ledger actually said.
@@ -33,7 +33,7 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-8 flex flex-wrap items-center gap-3"
+            className="reveal mt-8 flex flex-wrap items-center gap-3"
           >
             <MagneticButton href="#contact">{site.cta}</MagneticButton>
             <MagneticButton href="#work" variant="ghost">
@@ -46,7 +46,7 @@ export function Hero() {
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-          className="relative aspect-[4/3] w-full lg:aspect-auto lg:min-h-full"
+          className="reveal relative aspect-[4/3] w-full lg:aspect-auto lg:min-h-full"
         >
           <Image
             src="/images/hero-plunge.jpg"

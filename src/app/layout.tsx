@@ -50,7 +50,7 @@ export function generateMetadata(): Metadata {
   };
 }
 
-const themeScript = `(function(){try{var t=localStorage.getItem("theme");var d=document.documentElement;if(t==="light"){d.classList.remove("dark")}else{d.classList.add("dark")}}catch(e){document.documentElement.classList.add("dark")}})();`;
+const themeScript = `(function(){var d=document.documentElement;d.classList.add("js");try{var t=localStorage.getItem("theme");if(t==="light"){d.classList.remove("dark")}else{d.classList.add("dark")}}catch(e){d.classList.add("dark")}})();`;
 
 export default function RootLayout({
   children,
