@@ -1,5 +1,6 @@
 import { Contact } from "@/components/contact";
 import { Reveal } from "@/components/reveal";
+import { XEmbed } from "@/components/x-embed";
 import { contactNeutral, operatePage } from "@/content/copy";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -81,6 +82,28 @@ export default function OperatePage() {
                 {operatePage.closing}
               </p>
             </Reveal>
+
+            <div className="mt-10 border-t border-line pt-10">
+              <Reveal>
+                <h2 className="text-2xl font-medium tracking-tight md:text-3xl">
+                  {operatePage.coda.heading}
+                </h2>
+                <p className="mt-3 text-[16px] leading-relaxed text-muted md:text-[17px]">
+                  {operatePage.coda.lead}
+                </p>
+              </Reveal>
+              <Reveal delay={0.06}>
+                <XEmbed url={operatePage.coda.tweetUrl}>
+                  <p>{operatePage.coda.fallbackText}</p>
+                  <p>{operatePage.coda.fallbackAuthor}</p>
+                </XEmbed>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="mt-8 max-w-[58ch] text-[16px] leading-relaxed text-muted md:text-[17px]">
+                  {operatePage.coda.takeaway}
+                </p>
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>

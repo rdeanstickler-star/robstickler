@@ -451,6 +451,16 @@ export const operatePage = {
     "I will still work with you well inside a clear arrangement: defined scope, defined outcome, no drama. What suffers is open-ended collaboration, which needs shared precision to be worth anything.",
   closing:
     "If you already write things down and say what you mean, none of this costs you a thing. You just get the version of me that builds the process out, and then improves it.",
+  coda: {
+    heading: "A head coach, asked about culture",
+    lead: "Mike Macdonald runs the Seattle Seahawks. Asked about his team\u2019s culture, his answer is the argument this page makes:",
+    tweetUrl: "https://x.com/JoshChambers/status/2095146067973075174",
+    fallbackText:
+      "Mike Macdonald says culture is basically a fancy word people overcomplicate. \u201cIt\u2019s just how you do everything. It\u2019s just how you operate. Just how we roll. What\u2019s important to us.\u201d",
+    fallbackAuthor: "Josh Chambers (@JoshChambers) \u00b7 September 2, 2026",
+    takeaway:
+      "He said it about a locker room. It works at the scale of one person, and this page is that: how I operate, written down.",
+  },
 } as const;
 
 export const methodPage = {
