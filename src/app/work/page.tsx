@@ -40,6 +40,16 @@ export default function WorkPage() {
                         {entry.role}
                       </h2>
                       <p className="mt-1 text-[16px] text-muted">{entry.org}</p>
+                      {entry.logo ? (
+                        <span className="mt-3 inline-flex items-center rounded-md bg-white px-3 py-2">
+                          <Image
+                            src={entry.logo}
+                            alt={`${entry.org} logo`}
+                            width={110}
+                            height={35}
+                          />
+                        </span>
+                      ) : null}
                     </div>
                     <p className="font-mono text-[13px] whitespace-nowrap text-accent">
                       {entry.dates}

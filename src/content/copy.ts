@@ -20,7 +20,7 @@ export const identity = {
   operator: "Operator",
   location: "Orange County / Southern California",
   availability:
-    "Available for operating roles: on-site Southern California, hybrid, or remote.",
+    "Not looking for a new role. Still building, and available for side projects.",
   email: "hello@robstickler.com",
   linkedinLabel: "LinkedIn",
   resumeLabel: "Résumé",
@@ -325,6 +325,7 @@ export type WorkEntry = {
   org: string;
   dates: string;
   body: string;
+  logo?: string;
   points?: string[];
   photos: WorkPhoto[];
   videos?: { src: string; poster: string; caption: string; portrait?: boolean }[];
@@ -343,6 +344,14 @@ export const workPage = {
 } as const;
 
 export const workEntries: WorkEntry[] = [
+  {
+    role: "Assistant General Manager",
+    org: "Restore Hyper Wellness, Laguna Niguel, California",
+    dates: "Sep 2026 to present",
+    logo: "/images/restore-logo.svg",
+    body: "The newest chapter: back on the floor of a wellness operation, this time inside a national franchise.",
+    photos: [],
+  },
   {
     role: "Independent AI Operations Builder",
     org: "Self-directed",
