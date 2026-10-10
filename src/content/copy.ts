@@ -23,8 +23,6 @@ export const identity = {
     "Not looking for a new role. Still building, and available for side projects.",
   email: "hello@robstickler.com",
   linkedinLabel: "LinkedIn",
-  resumeLabel: "Résumé",
-  resumeHref: "/resume",
   conversation: "Start a conversation",
   disclosureLabel: "How this site was made:",
   disclosure:

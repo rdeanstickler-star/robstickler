@@ -134,6 +134,9 @@ concrete claims, honest hedges only where the fact itself is hedged.
 phone-free; that ruling is surface-specific, and the reasoning lives in MASTER.
 The public résumé PDF is a derived variant of the packet résumé (phone
 stripped, hello@ swapped) — regenerate it from source, never redact visually.
+As of 2026-10-09 the site no longer links to it (Rob's ruling): the file and
+the /resume redirect remain for direct URLs already in the world, but no page
+shows a résumé link. Do not reintroduce the link without Rob's word.
 
 ## 13. Route inventory
 
