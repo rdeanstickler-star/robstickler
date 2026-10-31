@@ -57,19 +57,9 @@ const tiles: Tile[] = [
     sentence: hub.panels.photographs.sentence,
     image: "/images/photos/photo-01.jpg",
     alt: "A lenticular cloud capping a snow-covered mountain at dusk",
-    span: "md:col-span-6",
-    height: "min-h-[240px] md:min-h-[320px]",
-    sizes: "(min-width: 768px) 50vw, 100vw",
-  },
-  {
-    href: "/studios",
-    title: hub.panels.studios.title,
-    sentence: hub.panels.studios.sentence,
-    image: "/images/work/plunge-red-2024.jpg",
-    alt: "A therapy room lit entirely in deep red light",
-    span: "md:col-span-6",
-    height: "min-h-[240px] md:min-h-[320px]",
-    sizes: "(min-width: 768px) 50vw, 100vw",
+    span: "md:col-span-12",
+    height: "min-h-[240px] md:min-h-[300px]",
+    sizes: "100vw",
   },
 ];
 

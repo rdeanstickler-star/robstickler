@@ -11,7 +11,6 @@ export const routes = [
   { href: "/work", label: nav.work },
   { href: "/proof", label: nav.artifacts },
   { href: "/how-i-operate", label: nav.operate },
-  { href: "/studios", label: nav.studios },
   { href: "/interests", label: nav.interests },
   { href: "/photographs", label: nav.photographs },
 ] as const;
@@ -347,7 +346,7 @@ export const workEntries: WorkEntry[] = [
     org: "Restore Hyper Wellness, Laguna Niguel, California",
     dates: "Sep 2026 to present",
     logo: "/images/restore-logo.svg",
-    body: "The newest chapter: back on the floor of a wellness operation, this time inside a national franchise.",
+    body: "Back on a wellness floor, this time inside a national franchise: cryotherapy, red light, sauna, compression, and IV therapy with a medical team on site. I run shifts, train, and look after the client experience, and on Sundays the store is mine to run. The training method from 1998 gets used every week.",
     photos: [],
   },
   {
