@@ -16,6 +16,30 @@ const parts: {
   { key: "evidence", label: "The evidence" },
 ];
 
+function SkimLine({ item }: { item: Artifact }) {
+  if (!item.tldr && !item.status) return null;
+  return (
+    <>
+      {item.tldr ? (
+        <p className="mt-4 max-w-[60ch] text-[17px] leading-relaxed">
+          {item.tldr}
+        </p>
+      ) : null}
+      {item.status ? (
+        <p className="mt-3 flex items-center gap-2 font-mono text-[13px] text-muted">
+          <span
+            aria-hidden
+            className={`inline-block h-[8px] w-[8px] rounded-full ${
+              item.live ? "bg-accent" : "bg-muted/60"
+            }`}
+          />
+          {item.status}
+        </p>
+      ) : null}
+    </>
+  );
+}
+
 function DateLine({ item }: { item: Artifact }) {
   if (!item.date && !item.recent) return null;
   return (
@@ -103,6 +127,7 @@ export function ArtifactList() {
                 {item.title}
               </h2>
               <DateLine item={item} />
+              <SkimLine item={item} />
               <ArtifactBody item={item} />
             </article>
           </Reveal>
@@ -143,6 +168,22 @@ export function ArtifactList() {
               {item.recent ? (
                 <span className="border border-accent/60 px-2 py-0.5 font-mono text-[12px] text-accent">
                   {artifactsPage.recentLabel}
+                </span>
+              ) : null}
+              {item.status ? (
+                <span className="flex items-center gap-2 font-mono text-[13px] text-muted">
+                  <span
+                    aria-hidden
+                    className={`inline-block h-[8px] w-[8px] rounded-full ${
+                      item.live ? "bg-accent" : "bg-muted/60"
+                    }`}
+                  />
+                  {item.status}
+                </span>
+              ) : null}
+              {item.tldr ? (
+                <span className="mt-1 block w-full pl-7 text-[15px] leading-relaxed text-muted">
+                  {item.tldr}
                 </span>
               ) : null}
             </summary>

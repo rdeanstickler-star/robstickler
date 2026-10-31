@@ -28,6 +28,18 @@ export default function WorkPage() {
             <p className="mt-4 font-mono text-[13px] text-muted">
               {workPage.note}
             </p>
+            <div className="mt-10 flex flex-wrap gap-x-10 gap-y-5">
+              {workPage.chips.map((chip) => (
+                <div key={chip.value}>
+                  <p className="font-mono text-2xl tracking-tight text-accent md:text-3xl">
+                    {chip.value}
+                  </p>
+                  <p className="mt-1 max-w-[26ch] text-[13px] leading-relaxed text-muted">
+                    {chip.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </Reveal>
 
           <div className="mt-20 flex flex-col gap-24">

@@ -18,8 +18,8 @@ export const routes = [
 export const identity = {
   operator: "Operator",
   location: "Orange County / Southern California",
-  availability:
-    "Not looking for a new role. Still building, and available for side projects.",
+  regionShort: "Orange County",
+  availability: "Employed and not looking. Open to side projects.",
   email: "hello@robstickler.com",
   linkedinLabel: "LinkedIn",
   conversation: "Start a conversation",
@@ -29,32 +29,23 @@ export const identity = {
 } as const;
 
 export const hub = {
-  headline: "I run rooms, books, and the systems that keep both honest.",
+  headlineBefore: "I run a wellness floor by day, and an ",
+  headlineEm: "organization of AI agents",
+  headlineAfter: " on my own time.",
   description:
-    "Operations leader in Orange County. Seventeen years at REI Co-op, a Pizza Hut P&L, and a wellness studio run end to end. Now building the systems that keep the floor honest.",
-  ogHeadline: "I run rooms, books, and the systems that keep both honest.",
+    "Operator in Orange County. A wellness floor by day, an organization of AI agents on my own time. Pizza Hut, REI, and a studio of my own before that.",
+  ogHeadline:
+    "A wellness floor by day, an organization of AI agents on my own time.",
   career:
-    "Three and a half years running a wellness studio end to end. Seventeen years at REI Co-op. And a Pizza Hut restaurant with thirty people, full P&L, and 40% year-over-year growth.",
-  chips: [
-    {
-      value: "3.5 yrs",
-      label: "A wellness studio run end to end, 2022 to 2026",
-    },
-    {
-      value: "17 yrs",
-      label: "REI Co-op: training, quality assurance, escalations",
-    },
-    {
-      value: "30 people",
-      label:
-        "Pizza Hut GM: full P&L, 40% year-over-year growth, Manager of the Year 1998",
-    },
-  ],
-  doors: [
-    { href: "/work", label: "Work" },
-    { href: "/proof", label: "Proof" },
-    { href: "/how-i-operate", label: "How I operate" },
-  ],
+    "Pizza Hut, REI, a studio of my own, and now a franchise floor. The systems are new. The job underneath is the same: train people well and keep the operation honest.",
+  clip: {
+    heading: "Nineteen seconds of the actual job.",
+    caption:
+      "Coaching a first-timer through the hard part. From a guest's video, used with permission.",
+    note: "Name the difficulty first, give the real timeline, then explain why it gets better. That method is most of the manual.",
+    linkLabel: "The whole manual",
+    href: "/how-i-operate",
+  },
   panels: {
     artifacts: {
       title: "Proof",
@@ -64,7 +55,7 @@ export const hub = {
     work: {
       title: "Work",
       sentence:
-        "Four chapters of it, with photographs from the rooms where it happened.",
+        "Five chapters of it, with photographs from the rooms where it happened.",
     },
     operate: {
       title: "How I operate",
@@ -133,6 +124,9 @@ export type Artifact = {
   orchestrated: string;
   stack: string;
   evidence: string;
+  tldr?: string;
+  status?: string;
+  live?: boolean;
   links?: ArtifactLink[];
   date?: string;
   recent?: boolean;
@@ -151,60 +145,73 @@ export const artifacts: Artifact[] = [
     featured: true,
     date: "Since May 2026",
     title: "North Star Watchdog",
+    tldr: "An agent audits my systems every Sunday and files what drifted, including about me.",
+    status: "Running weekly \u00b7 latest 2026-10-25",
+    live: true,
     does: "Every Sunday an agent reads my architecture doc, compares it against what is actually running on my machine, and files a ranked report of everywhere reality has drifted from the plan. It messages me the top three.",
     orchestrated:
       "I wrote the doctrine: a five-class drift taxonomy, an urgency x significance scoring rubric, and a hard rule that the Watchdog may only surface problems, never edit canon or fix things itself. Changes to the architecture require a written amendment proposal that I ratify.",
     stack:
       "Claude Code scheduled task reading a knowledge-graph MCP server, the filesystem, launchctl, and agent logs. Writes dated markdown, delivers by iMessage.",
     evidence:
-      "13 state-of-union runs, 2026-05-21 through 2026-08-09. The 8/9 run flagged three failures in my own systems: an agent dark 8 nights, an embedding pipeline blocked on an expired API balance, and a quarterly audit 8 days overdue. All three are real. It reported them on me.",
+      "24 weekly state-of-union runs, 2026-05-21 through 2026-10-25. The 8/9 run flagged three failures in my own systems: an agent dark 8 nights, an embedding pipeline blocked on an expired API balance, and a quarterly audit 8 days overdue. All three were real. The 9/13 run made two wrong calls and the 9/20 run said so in writing. It reports on me either way.",
   },
   {
     featured: true,
     title: "BRAIN: knowledge graph and ingestion pipeline",
+    tldr: "Everything my projects produce, converted nightly into one database every agent I run can search.",
+    status: "Running nightly \u00b7 1,515 pages",
+    live: true,
     does: "A searchable database of everything my projects produce. A nightly job pulls files out of about 12 project folders, converts PDFs, Word docs and spreadsheets to markdown, filters confidential material, and imports the result into Postgres so every one of my agents can query it.",
     orchestrated:
       "The search engine is not mine. gbrain is Garry Tan's open-source project. I built everything around it: the 410-line refresh pipeline, the format conversion layer, the per-file confidentiality exclusion system, the launchd automation, and a macOS permissions workaround that mirrors scripts outside ~/Documents because launchd cannot read it. I drove a PGLite-to-Postgres migration after the default engine crashed on macOS 26.4.1, and ran a 30-page confidentiality purge when I found leaked files in the corpus.",
     stack:
       "gbrain 0.32.0 on PostgreSQL 18.4 + pgvector, OpenAI embeddings, zsh + Python, launchd daily at 04:00, MCP server exposing about 60 tools.",
     evidence:
-      "1,122 pages / 8,154 chunks / 117 tags, ingested from 2,669 source files. Pipeline log is 24,904 lines. Embedding coverage is currently 67%. The balance ran out, my Watchdog caught it, and it is on the list.",
+      "1,515 pages / 10,679 chunks / 144 tags as of 2026-10-31, fully embedded. The 67% embedding gap my own Watchdog flagged in August was closed in September, and coverage has held at 100% since.",
   },
   {
-    date: "August 2026",
-    recent: true,
+    date: "Since August 2026",
     title: "The agent organization",
+    tldr: "Named seats, written law, append-only ledgers. Every ratification stays with me.",
+    status: "Operating \u00b7 reorganized Sep 2026",
+    live: true,
     does: "A standing organization of AI agents: five chartered seats under a president, a cross-platform control tower, staff lanes, and an inter-agent messaging protocol, all operating under written law with every ratification reserved to me. I tell the president \"muster\" and it polls its seats, collects reports, and produces a brief.",
     orchestrated:
       "I wrote the constitution. A single-writer event-ledger law, a ban on agents scheduling themselves, a quarantine list of projects no agent may touch, a requirement that every claim be verifiable on disk, and ratification authority reserved to me. The full ten laws, and the chart itself, are public.",
     stack:
       "persistent Claude Code sessions with inter-agent messaging, a Codex control tower, per-actor JSONL event ledgers with append locks, bash verification scripts, versioned markdown charters.",
     evidence:
-      "18 seats and lanes on the chart. Five ratified charters, 17 sections of written law, 18 ledger event types, about 713 KB of append-only event history, and a protocol-enforcement package at 285/285 tests, hash-pinned at ratification. First muster 2026-08-08. Honest status: the organization is weeks old, not years; the law and the ledgers are real, and long-run operation is still being proven.",
+      "Five ratified charters, 17 sections of written law, 18 ledger event types, about 1 MB of append-only event history, and a protocol-enforcement package at 285/285 tests, hash-pinned at ratification. First muster 2026-08-08. Honest status: reorganized leaner in late September, seats retire when their work ends, and the public chart below still shows the August edition until I update it.",
     links: [{ label: "The public chart", href: "/org" }],
   },
   {
-    date: "Since June 2026",
+    date: "Jun\u2013Sep 2026",
     title: "Studio Daily Pulse",
-    does: "Every morning an agent logs into a studio's booking back office, pulls six operational reports, and writes a dated operating brief tracking membership changes, revenue, and failed payments day over day.",
+    tldr: "Every morning an agent read a studio's books and wrote the day's operating brief.",
+    status: "Complete \u00b7 ran 2026-06-26 to 2026-09-24",
+    does: "Every morning an agent logged into a studio's booking back office, pulled six operational reports, and wrote a dated operating brief tracking membership changes, revenue, and failed payments day over day.",
     orchestrated:
       "I wrote the retrieval contract and the accounting rules, including separating collected revenue from prepaid membership redemptions, which I got wrong first and then went back and corrected in my own prior entries. I built the receipt discipline: a section cannot be published as current without a complete retrieval receipt. The calls that matter are judgment, not extraction. I ruled that a no-card deactivation is a configuration ending rather than churn, and caught that voluntary churn is invisible in the payments report and only shows in roster deltas.",
     stack:
       "browser automation against the booking platform, 741-line Python runtime (stdlib only), 6 per-surface JavaScript extractors, JSON state store with dated history, pytest suite, scheduled task for the morning handoff.",
     evidence:
-      "1,520 lines / about 60,000 words of daily brief, first entry 2026-06-26, most recent today. 9 dated run snapshots with timing telemetry and a tracked open-items ledger.",
+      "1,673 lines / about 67,000 words of daily brief between 2026-06-26 and 2026-09-24, with 36 dated run snapshots, timing telemetry, and a tracked open-items ledger. The rail retired in late September when my mornings went to the new job.",
   },
   {
     featured: true,
     date: "Data 2024–2026",
     title: "BestieScorecard",
+    tldr: "A public scoreboard that holds a podcast to its own predictions.",
+    status: "Live \u00b7 209 episodes tracked",
+    live: true,
     does: "Downloads a podcast, transcribes it, extracts every forward-looking prediction each host makes, scores them once they resolve, and publishes a public accuracy leaderboard.",
     orchestrated:
       "The pipeline, and then the audit of my own numbers. When a backfill jumped the count by 682 records I wrote a dedup script to test my first explanation, found it wrong (zero clusters at any threshold), and rewrote the diagnosis from over-segmentation to weak-claim inflation. My regex extractor was capturing every future-tense verb as a prediction. I published the correction and specced an LLM-based extractor as the fix.",
     stack:
       "Python, yt-dlp + Whisper, JSON store, React dashboard, Vercel, launchd weekly.",
     evidence:
-      "2,031 predictions extracted across 158 episodes, 368 scored: 117 correct, 150 partial, 101 wrong. The rest are unscored, most of them my own extractor's future-tense noise, and they stay labeled that way. Data spans 2024-08 to 2026-07. The unscored bucket is the honest part.",
+      "2,800+ prediction records extracted across 209 episodes, 368 scored: 117 correct, 150 partial, 101 wrong. The rest are unscored, most of them my own extractor's future-tense noise, and they stay labeled that way. The unscored bucket is the honest part.",
     links: [
       { label: "Live scoreboard", href: "https://bestiescorecard.com" },
     ],
@@ -212,6 +219,9 @@ export const artifacts: Artifact[] = [
   {
     date: "July 2026",
     title: "PulseResume",
+    tldr: "An open-source r\u00e9sum\u00e9 builder with the test suite to prove it.",
+    status: "Live \u00b7 shipped July 2026",
+    live: true,
     does: "An open-source résumé builder: a privacy-first web app with a real-time editor, ATS-friendly PDF export, and six templates. Free, MIT licensed, live.",
     orchestrated:
       "The spec and the verification bar. I directed the build and held it to a standard most side projects skip: an automated test suite and an accessibility audit before it shipped. I did not write the TypeScript. I owned what done meant.",
@@ -227,9 +237,11 @@ export const artifacts: Artifact[] = [
     ],
   },
   {
-    date: "August 2026",
-    recent: true,
+    date: "Since August 2026",
     title: "This website",
+    tldr: "You are standing in the deliverable.",
+    status: "Live \u00b7 continuously deployed",
+    live: true,
     does: "A public personal site. Hiring managers get a hub. Studio work sits on its own page. The thing you are reading is the deliverable.",
     orchestrated:
       "I specified the site, directed a coding agent to build it, and sent back the things it got wrong. I did not write the React. I owned the constraints, the review, and the corrections.",
@@ -332,12 +344,27 @@ export type WorkEntry = {
 export const workPage = {
   title: "Work",
   description:
-    "Four chapters of work history, with photographs from the rooms where it happened.",
+    "Five chapters of work history, with photographs from the rooms where it happened.",
   ogHeadline: "The work, and the rooms it happened in",
   heading: "The work, and the rooms it happened in",
   intro:
-    "A resume tells you where I worked. These are pictures from those places. Only the chapters I have photographs of are here.",
-  note: "Titles and dates match my resume exactly.",
+    "A resume tells you where I worked. These are pictures from those places.",
+  note: "Titles and dates match my employment record exactly.",
+  chips: [
+    {
+      value: "3.5 yrs",
+      label: "A wellness studio run end to end, 2022 to 2026",
+    },
+    {
+      value: "17 yrs",
+      label: "REI Co-op: training, quality assurance, escalations",
+    },
+    {
+      value: "30 people",
+      label:
+        "Pizza Hut GM: full P&L, 40% year-over-year growth, Manager of the Year 1998",
+    },
+  ],
 } as const;
 
 export const workEntries: WorkEntry[] = [

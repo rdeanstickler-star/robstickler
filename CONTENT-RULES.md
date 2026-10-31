@@ -91,20 +91,23 @@ plainly ("It opened under an earlier name"). Never "twenty months" — a stale
 figure that sat on this site for months and propagated into downstream work.
 Never "four years."
 
-## 8. The site is ops-first — ruled 2026-08-28
+## 8. The site leads with the person — reruled 2026-10-31
 
-Identity order on the hire path: people and P&L first, systems second. The
-homepage speaks as an operator; the systems line ("I don't write the code...")
-opens /proof, it does not lead the site. Proof chips on the homepage carry
-sanctioned numbers only (rules 2 and 6).
+The August ops-first scan page served the job search; that job ended. Ruled
+2026-10-31: the site is written for the reader who just met Rob and typed his
+name. The homepage leads with his face on every viewport and one plain
+headline (the wellness floor by day, the agent organization on his own time).
+The career chips moved to /work (sanctioned numbers only, rules 2 and 6).
+Tile images must mean something to a stranger; the moon tile is retired.
 
-Nav order is recruiter-first: Work, Proof, How I operate, Studios, Interests,
-Photographs. /proof was renamed from /artifacts on 2026-08-28 with a permanent
-redirect; the old URL keeps working.
+Nav order: Work, Proof, How I operate, Interests, Photographs. /studios was
+soft-parked 2026-10-31 (unlinked, still serving). /proof was renamed from
+/artifacts on 2026-08-28 with a permanent redirect; the old URL keeps working.
 
 **Proof-page bar:** a card must be openable or verifiable quickly, and it must
-be hire evidence, not lab notebook. Run-count trophies (largest fan-out, idea
-tallies) stay off the page. Hobby apps live on /interests.
+be evidence, not lab notebook. Every card carries a one-line summary and a
+dated status; a status line that goes stale is a bug, not a leftover. Run-count
+trophies stay off the page. Hobby apps live on /interests.
 
 ## 9. How I operate is deliberately public
 
