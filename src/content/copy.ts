@@ -290,11 +290,11 @@ export const interestsPage = {
     },
     {
       title: "Cold, heat, and light",
-      body: "I use them every day. Not a brand posture. It is how I know whether a protocol is something a real person will keep doing.",
+      body: "Heat and light most days. Cold was daily for years, and right now I am running the opposite experiment, no plunge at all, to see what changes. Testing protocols on myself is the point.",
     },
     {
       title: "Breathwork and meditation",
-      body: "Daily, and usually next to the cold. Two minutes of slow exhales changes what the plunge costs, and knowing that firsthand is worth more than citing a study about it.",
+      body: "Daily. Two minutes of slow exhales before anything hard changes what it costs, and knowing that firsthand is worth more than citing a study about it.",
     },
     {
       title: "Photographs",

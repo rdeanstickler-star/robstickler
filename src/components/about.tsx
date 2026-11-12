@@ -28,9 +28,9 @@ export function About() {
               restaurant with thirty people and full P&L.
             </p>
             <p>
-              I use cold, heat, and light every day. That is not a brand
-              posture. It is how I know whether a protocol is something a real
-              person will keep doing.
+              I used cold, heat, and light daily for years, and I still test
+              every protocol on myself before I believe it. That is how I know
+              whether a protocol is something a real person will keep doing.
             </p>
             <p>
               I design the system and I talk to the member. I do not pretend to
