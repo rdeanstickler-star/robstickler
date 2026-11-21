@@ -54,8 +54,8 @@ export function Contact({ copy = contactNeutral }: { copy?: ContactCopy }) {
 
   return (
     <section id="contact" className="border-t border-line scroll-mt-20">
-      <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-8 md:py-28">
-        <Reveal>
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 px-5 py-20 md:px-8 md:py-28 lg:grid-cols-12 lg:gap-10">
+        <Reveal className="lg:col-span-5">
           <h2 className="max-w-[16ch] text-3xl font-medium tracking-tight md:text-4xl">
             {copy.heading}
           </h2>
@@ -64,7 +64,7 @@ export function Contact({ copy = contactNeutral }: { copy?: ContactCopy }) {
           </p>
         </Reveal>
 
-        <Reveal delay={0.08} className="mt-12 max-w-xl">
+        <Reveal delay={0.08} className="mt-12 max-w-xl lg:col-span-6 lg:col-start-7 lg:mt-0">
           {status === "success" ? (
             <p className="border border-line bg-bg-elev px-5 py-6 text-[16px] leading-relaxed">
               {copy.success}

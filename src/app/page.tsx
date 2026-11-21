@@ -4,8 +4,7 @@ import { Contact } from "@/components/contact";
 import { HubPanels } from "@/components/hub-panels";
 import { MagneticButton } from "@/components/magnetic-button";
 import { Reveal } from "@/components/reveal";
-import { TweetQuote } from "@/components/tweet-quote";
-import { contactNeutral, endorsement, hub, identity } from "@/content/copy";
+import { contactNeutral, hub, identity } from "@/content/copy";
 import { isMailto } from "@/lib/email";
 import { pageMetadata } from "@/lib/metadata";
 import { getSiteUrl, site } from "@/lib/site";
@@ -58,7 +57,7 @@ export default function Home() {
                   {identity.operator} &middot; {identity.regionShort}
                 </p>
               </div>
-              <h1 className="mt-6 max-w-[22ch] text-4xl font-medium tracking-tight text-balance md:text-5xl xl:text-6xl xl:leading-[1.05]">
+              <h1 className="mt-6 max-w-[22ch] text-4xl font-medium tracking-tight text-balance md:text-5xl xl:text-7xl xl:leading-[1.02]">
                 {hub.headlineBefore}
                 <span className="text-accent">{hub.headlineEm}</span>
                 {hub.headlineAfter}
@@ -97,7 +96,7 @@ export default function Home() {
         <section className="border-t border-line">
           <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-8 md:py-28">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:items-center">
-              <Reveal className="md:col-span-5">
+              <Reveal className="md:col-span-6">
                 <h2 className="max-w-[16ch] text-3xl font-medium tracking-tight md:text-4xl">
                   {hub.clip.heading}
                 </h2>
@@ -116,7 +115,7 @@ export default function Home() {
                   </Link>
                 </p>
               </Reveal>
-              <Reveal className="md:col-span-4 md:col-start-7" delay={0.06}>
+              <Reveal className="md:col-span-5 md:col-start-8 md:flex md:justify-end" delay={0.06}>
                 <video
                   controls
                   preload="none"
@@ -132,26 +131,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="border-t border-line">
-          <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-8 md:py-28">
-            <Reveal>
-              <h2 className="max-w-[18ch] text-3xl font-medium tracking-tight md:text-4xl">
-                {endorsement.heading}
-              </h2>
-              <p className="mt-4 max-w-[52ch] text-[16px] leading-relaxed text-muted md:text-[17px]">
-                {endorsement.intro}
-              </p>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <TweetQuote />
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="mt-8 max-w-[52ch] text-[16px] leading-relaxed text-muted md:text-[17px]">
-                {endorsement.takeaway}
-              </p>
-            </Reveal>
-          </div>
-        </section>
         <Contact copy={contactNeutral} />
       </main>
     </>

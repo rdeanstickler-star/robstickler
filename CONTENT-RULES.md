@@ -104,8 +104,14 @@ Nav order: Work, Proof, How I operate, Interests, Photographs. /studios was
 soft-parked 2026-10-31 (unlinked, still serving). /proof was renamed from
 /artifacts on 2026-08-28 with a permanent redirect; the old URL keeps working.
 
+**Homepage, 2026-11-21 (Rob: "make all of them"):** the headshot is a small
+avatar beside the eyebrow, never the first thing on the page. Tile images carry
+no text of their own; a tile is never a screenshot of another site. The
+Uncle Bob quote lives on /proof, not home. The contact form appears on the
+homepage only; every other page relies on the footer's email line.
+
 **Proof-page bar:** a card must be openable or verifiable quickly, and it must
-be evidence, not lab notebook. Every card carries a one-line summary and a
+be evidence, not lab notebook. The technical stack sits behind a click. Every card carries a one-line summary and a
 dated status; a status line that goes stale is a bug, not a leftover. Run-count
 trophies stay off the page. Hobby apps live on /interests.
 

@@ -7,12 +7,11 @@ import {
 } from "@/content/copy";
 
 const parts: {
-  key: keyof Pick<Artifact, "does" | "orchestrated" | "stack" | "evidence">;
+  key: keyof Pick<Artifact, "does" | "orchestrated" | "evidence">;
   label: string;
 }[] = [
   { key: "does", label: "What it does" },
   { key: "orchestrated", label: "What I orchestrated" },
-  { key: "stack", label: "The stack" },
   { key: "evidence", label: "The evidence" },
 ];
 
@@ -87,6 +86,20 @@ function ArtifactBody({ item }: { item: Artifact }) {
           </dd>
         </div>
       ))}
+      <details className="group/stack md:col-span-2">
+        <summary className="flex cursor-pointer list-none items-center gap-2 text-[14px] font-medium text-muted transition-colors hover:text-ink [&::-webkit-details-marker]:hidden">
+          <span
+            aria-hidden
+            className="font-mono text-accent transition-transform duration-200 group-open/stack:rotate-45"
+          >
+            +
+          </span>
+          The technical stack
+        </summary>
+        <p className="mt-3 max-w-[68ch] font-mono text-[13px] leading-relaxed text-muted">
+          {item.stack}
+        </p>
+      </details>
     </dl>
   );
 }

@@ -95,7 +95,7 @@ export const endorsement = {
     "IMHO.",
   ],
   takeaway:
-    "He writes code. I direct it. The discipline he is naming is what the rest of this site documents.",
+    "He writes code. I direct it. The cards above are what that discipline looks like in practice.",
 } as const;
 
 export const artifactsPage = {

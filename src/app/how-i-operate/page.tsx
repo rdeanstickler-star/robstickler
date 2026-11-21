@@ -1,7 +1,6 @@
-import { Contact } from "@/components/contact";
 import { Reveal } from "@/components/reveal";
 import { XEmbed } from "@/components/x-embed";
-import { contactNeutral, operatePage } from "@/content/copy";
+import { operatePage } from "@/content/copy";
 import { pageMetadata } from "@/lib/metadata";
 
 export function generateMetadata() {
@@ -107,7 +106,6 @@ export default function OperatePage() {
           </div>
         </div>
       </section>
-      <Contact copy={contactNeutral} />
     </main>
   );
 }

@@ -1,7 +1,6 @@
-import { Contact } from "@/components/contact";
 import { OrgChart, OrgChartLegend } from "@/components/org-chart";
 import { Reveal } from "@/components/reveal";
-import { contactNeutral, orgPage, type OrgNode } from "@/content/copy";
+import { orgPage, type OrgNode } from "@/content/copy";
 import { pageMetadata } from "@/lib/metadata";
 
 export function generateMetadata() {
@@ -150,7 +149,6 @@ export default function OrgPage() {
           </div>
         </div>
       </section>
-      <Contact copy={contactNeutral} />
     </main>
   );
 }

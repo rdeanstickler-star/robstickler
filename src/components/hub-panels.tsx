@@ -9,8 +9,8 @@ type Tile = {
   href: string;
   title: string;
   sentence: string;
-  image: string;
-  alt: string;
+  image?: string;
+  alt?: string;
   span: string;
   height: string;
   sizes: string;
@@ -23,8 +23,6 @@ const tiles: Tile[] = [
     href: "/proof",
     title: hub.panels.artifacts.title,
     sentence: hub.panels.artifacts.sentence,
-    image: "/images/proof-scoreboard.jpg",
-    alt: "The BestieScorecard site: big orange tallies of predictions extracted, episodes, and scores over a dark scoreboard",
     span: "md:col-span-7 md:row-span-2",
     height: "min-h-[340px] md:min-h-[652px]",
     sizes: "(min-width: 768px) 58vw, 100vw",
@@ -76,14 +74,26 @@ export function HubPanels() {
             href={tile.href}
             className={`group relative isolate flex h-full flex-col justify-end overflow-hidden border border-line bg-bg-elev p-6 transition-colors hover:border-ink md:p-8 ${tile.height}`}
           >
-            <Image
-              src={tile.image}
-              alt={tile.alt}
-              fill
-              sizes={tile.sizes}
-              priority={tile.priority}
-              className="-z-20 object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-            />
+            {tile.image ? (
+              <Image
+                src={tile.image}
+                alt={tile.alt ?? ""}
+                fill
+                sizes={tile.sizes}
+                priority={tile.priority}
+                className="-z-20 object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              />
+            ) : (
+              <div
+                aria-hidden
+                className="absolute inset-0 -z-20 bg-[#141618] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle at 78% 22%, rgba(200,90,50,0.32), transparent 55%), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+                  backgroundSize: "100% 100%, 44px 44px, 44px 44px",
+                }}
+              />
+            )}
             <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141618]/88 via-[#141618]/40 to-[#141618]/10" />
             <h2
               className={`font-medium tracking-tight text-white ${

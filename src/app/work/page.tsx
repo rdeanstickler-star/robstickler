@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Contact } from "@/components/contact";
 import { Reveal } from "@/components/reveal";
-import { contactNeutral, workEntries, workPage } from "@/content/copy";
+import { workEntries, workPage } from "@/content/copy";
 import { pageMetadata } from "@/lib/metadata";
 
 export function generateMetadata() {
@@ -148,7 +147,6 @@ export default function WorkPage() {
           </div>
         </div>
       </section>
-      <Contact copy={contactNeutral} />
     </main>
   );
 }
