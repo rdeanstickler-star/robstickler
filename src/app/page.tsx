@@ -42,62 +42,53 @@ export default function Home() {
       <main id="main">
         <section>
           <div className="mx-auto max-w-[1400px] px-5 pt-12 pb-16 md:px-8 md:pt-20 md:pb-24">
-            <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
-              <Reveal className="order-2 lg:order-1 lg:col-span-7">
+            <Reveal>
+              <div className="flex items-center gap-3">
+                <div className="relative size-11 shrink-0 overflow-hidden rounded-full border border-line md:size-12">
+                  <Image
+                    src="/images/rob.jpg"
+                    alt="Rob Stickler"
+                    fill
+                    priority
+                    sizes="48px"
+                    className="object-cover object-[50%_30%]"
+                  />
+                </div>
                 <p className="text-[13px] font-medium tracking-tight text-muted">
                   {identity.operator} &middot; {identity.regionShort}
                 </p>
-                <h1 className="mt-5 max-w-[20ch] text-4xl font-medium tracking-tight text-balance md:text-5xl xl:text-6xl xl:leading-[1.05]">
-                  {hub.headlineBefore}
-                  <span className="text-accent">{hub.headlineEm}</span>
-                  {hub.headlineAfter}
-                </h1>
-                <p className="mt-6 max-w-[52ch] text-[16px] leading-relaxed text-muted md:text-[17px]">
-                  {hub.career}
-                </p>
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <MagneticButton href="/proof">See the proof</MagneticButton>
-                  <MagneticButton href="/how-i-operate" variant="ghost">
-                    How I operate
-                  </MagneticButton>
-                </div>
-                <p className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[14px] text-muted">
-                  <span>{identity.availability}</span>
-                  {isMailto(identity.email) ? (
-                    <a href={`mailto:${identity.email}`} className="text-ink">
-                      {identity.email}
-                    </a>
-                  ) : null}
-                  <a
-                    href={site.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-ink"
-                  >
-                    {identity.linkedinLabel}
+              </div>
+              <h1 className="mt-6 max-w-[22ch] text-4xl font-medium tracking-tight text-balance md:text-5xl xl:text-6xl xl:leading-[1.05]">
+                {hub.headlineBefore}
+                <span className="text-accent">{hub.headlineEm}</span>
+                {hub.headlineAfter}
+              </h1>
+              <p className="mt-6 max-w-[56ch] text-[16px] leading-relaxed text-muted md:text-[17px]">
+                {hub.career}
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <MagneticButton href="/proof">See the proof</MagneticButton>
+                <MagneticButton href="/how-i-operate" variant="ghost">
+                  How I operate
+                </MagneticButton>
+              </div>
+              <p className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[14px] text-muted">
+                <span>{identity.availability}</span>
+                {isMailto(identity.email) ? (
+                  <a href={`mailto:${identity.email}`} className="text-ink">
+                    {identity.email}
                   </a>
-                </p>
-              </Reveal>
-
-              <Reveal className="order-1 lg:order-2 lg:col-span-5" delay={0.08}>
-                <div className="relative mx-auto w-full max-w-[230px] sm:max-w-[280px] lg:ml-auto lg:max-w-[360px]">
-                  <div
-                    aria-hidden
-                    className="absolute -right-3 -bottom-3 top-4 left-4 border border-line bg-bg-elev"
-                  />
-                  <div className="relative aspect-[4/5] overflow-hidden border border-line">
-                    <Image
-                      src="/images/rob.jpg"
-                      alt="Rob Stickler"
-                      fill
-                      priority
-                      sizes="(min-width: 1024px) 360px, (min-width: 640px) 280px, 230px"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </Reveal>
-            </div>
+                ) : null}
+                <a
+                  href={site.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ink"
+                >
+                  {identity.linkedinLabel}
+                </a>
+              </p>
+            </Reveal>
 
             <HubPanels />
           </div>
