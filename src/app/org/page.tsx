@@ -25,7 +25,7 @@ function NodeCard({ node }: { node: OrgNode }) {
   }
   return (
     <div
-      className={`${base} border bg-bg-elev ${
+      className={`${base} border bg-bg-elev ${node.kind === "parked" ? "opacity-60 " : ""}${
         node.kind === "chairman" || node.kind === "self"
           ? "border-accent/60"
           : "border-line"
@@ -60,6 +60,9 @@ export default function OrgPage() {
                 {para}
               </p>
             ))}
+            <p className="mt-6 max-w-[62ch] font-mono text-[13px] leading-relaxed text-muted">
+              {orgPage.edition}
+            </p>
           </Reveal>
 
           <Reveal>
@@ -96,6 +99,14 @@ export default function OrgPage() {
             <h2 className="mt-24 text-3xl font-medium tracking-tight md:text-4xl">
               {orgPage.chartHeading}
             </h2>
+            {orgPage.chartIntro.map((para) => (
+              <p
+                key={para.slice(0, 24)}
+                className="mt-4 max-w-[62ch] text-[16px] leading-relaxed text-muted"
+              >
+                {para}
+              </p>
+            ))}
           </Reveal>
           <Reveal>
             <OrgChartLegend />
@@ -147,6 +158,21 @@ export default function OrgPage() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal>
+            <h2 className="mt-24 text-3xl font-medium tracking-tight md:text-4xl">
+              {orgPage.changesHeading}
+            </h2>
+          </Reveal>
+          <ul className="mt-8 max-w-[68ch]">
+            {orgPage.changes.map((change, index) => (
+              <li key={change.slice(0, 24)} className="border-t border-line py-5">
+                <Reveal delay={Math.min(index * 0.03, 0.12)}>
+                  <p className="text-[16px] leading-relaxed text-muted">{change}</p>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </main>

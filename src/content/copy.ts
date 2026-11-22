@@ -174,15 +174,15 @@ export const artifacts: Artifact[] = [
     date: "Since August 2026",
     title: "The agent organization",
     tldr: "Named seats, written law, append-only ledgers. Every ratification stays with me.",
-    status: "Operating \u00b7 reorganized Sep 2026",
+    status: "Operating \u00b7 chart updated Nov 2026",
     live: true,
-    does: "A standing organization of AI agents: five chartered seats under a president, a cross-platform control tower, staff lanes, and an inter-agent messaging protocol, all operating under written law with every ratification reserved to me. I tell the president \"muster\" and it polls its seats, collects reports, and produces a brief.",
+    does: "A standing organization of AI agents: chartered seats that report to me directly, a cross-platform control tower, staff lanes, and an inter-agent messaging protocol, all operating under written law with every ratification reserved to me. A steward seat keeps the chart and reconciles it against the live roster every month.",
     orchestrated:
       "I wrote the constitution. A single-writer event-ledger law, a ban on agents scheduling themselves, a quarantine list of projects no agent may touch, a requirement that every claim be verifiable on disk, and ratification authority reserved to me. The full ten laws, and the chart itself, are public.",
     stack:
       "persistent Claude Code sessions with inter-agent messaging, a Codex control tower, per-actor JSONL event ledgers with append locks, bash verification scripts, versioned markdown charters.",
     evidence:
-      "Five ratified charters, 17 sections of written law, 18 ledger event types, about 1 MB of append-only event history, and a protocol-enforcement package at 285/285 tests, hash-pinned at ratification. First muster 2026-08-08. Honest status: reorganized leaner in late September, seats retire when their work ends, and the public chart below still shows the August edition until I update it.",
+      "Four ratified Apple Corps charters, 17 sections of written law, and about 1 MB of append-only event history. First muster 2026-08-08. The protocol checker passed 285/285 tests at ratification and retired with the president seat in September. At the November reconcile 13 seats were active, 10 were parked, and eight had retired on my ruling. The public chart is the November edition.",
     links: [{ label: "The public chart", href: "/org" }],
   },
   {
@@ -556,7 +556,7 @@ export const methodPage = {
 export type OrgNode = {
   name: string;
   note: string;
-  kind?: "chairman" | "self" | "redacted";
+  kind?: "chairman" | "self" | "redacted" | "parked";
 };
 
 export const orgPage = {
@@ -569,37 +569,39 @@ export const orgPage = {
     "I run an organization of AI agents. Named seats, written charters, append-only event ledgers, and one human at the top holding every ratification. This page is the public edition of its chart.",
     "The same quarantine law that binds the agents binds this page, which is why parts of it are redacted. And one detail worth knowing: I directed one of the seats, Carlos, to design and build the page you are reading, and I sent back what it got wrong.",
   ],
+  edition:
+    "Second edition, November 2026. The first went up in August. What changed since then is at the bottom of the page.",
   lawsHeading: "The law comes first",
   lawsIntro:
     "The chart is the easy part. What makes the organization work is that every seat operates under the same written rules. These are the ten that matter.",
   laws: [
     {
       title: "One writer per record.",
-      body: "Every agent appends to its own event ledger; nobody edits anyone else's. Append-only JSONL, one file per seat.",
+      body: "Every file has exactly one seat allowed to write it, and anyone may read it. Each chartered seat appends to its own event ledger; nobody edits anyone else's.",
     },
     {
-      title: "Nothing runs between messages.",
-      body: "Agents are event-driven and may not schedule themselves; every activation traces back to a human trigger.",
+      title: "Nothing schedules itself.",
+      body: "Agents may not set their own timers or start themselves. A recurring job exists only when I approve it, and it has to name its owner and what would retire it.",
     },
     {
-      title: "Claims are verified on disk, never trusted.",
-      body: "An agent's report is checked against the file system before it counts. Absence of an artifact reads as unknown, never as did-not-happen.",
+      title: "Claims are verified on disk, and silence proves nothing.",
+      body: "An agent's report is checked against the file system before it counts. A quiet lane, or a chat gone from the list, proves nothing either way. A lane closes only on its owner's records or my ruling.",
     },
     {
       title: "Authority is default-deny.",
-      body: "Agents hold read-and-propose rights. Destructive or out-of-lane writes require a written grant quoting the human's words, naming the exact objects, with an expiry.",
+      body: "A seat works only inside the task I authorized. Where a file sits grants nothing, and an old instruction does not stretch to cover a new action. Deleting, publishing, or sending anything outside needs my explicit word, and the seat logs whose words it used.",
     },
     {
       title: "Addresses resolve at send time.",
-      body: "Agents message each other by exact chat title, looked up fresh for every send. Stored addresses go stale and are banned.",
+      body: "Agents message each other by exact chat title, looked up fresh for every send. Stored addresses go stale and are banned. If a title matches no chat, or more than one, the send stops. Nobody guesses.",
     },
     {
-      title: "Never interrupt a working agent.",
-      body: "Before any message, the sender verifies the recipient is idle. A message landing mid-task can corrupt the task.",
+      title: "A list counts only when it comes up short.",
+      body: "The chat list fills to whatever limit an agent asks for and drops the rest without saying so. A lookup counts only when the list comes back shorter than its limit. A list that stopped at its limit once hid 179 chats.",
     },
     {
       title: "Compose first, then check, then send.",
-      body: "The full message is written before the idle check, so the send happens inside the same safe window.",
+      body: "The full message is written before anything else. Then the sender checks that the recipient is idle, because a message landing mid-task can corrupt the task. A busy recipient is skipped and the message is recorded as pending. Nobody waits or polls.",
     },
     {
       title: "A file note is not a handoff.",
@@ -607,14 +609,18 @@ export const orgPage = {
     },
     {
       title: "Private lanes are quarantined.",
-      body: "Some lanes touch personal and private matters. Agents outside them may say only the lane's name plus escalate-to-the-human. This law is why parts of this chart are redacted.",
+      body: "Some lanes touch personal and private matters. Agents outside them may say only the lane's name plus escalate-to-the-human, and reading another chat does not change that. This law is why parts of this chart are redacted.",
     },
     {
       title: "Fleet-wide instruments are human-triggered only.",
-      body: "An all-hands broadcast, or a lane-review sweep where every agent re-inspects its own lane for dropped work, fires only on my word, through one steward seat.",
+      body: "An all-hands broadcast, or a lane-review sweep where each active seat re-inspects its own lane for dropped work, fires only on my word, through the one steward seat. Parked seats are not swept. Replies come back as one-line files, and the sender stays idle until they land.",
     },
   ],
   chartHeading: "The chart",
+  chartIntro: [
+    "A seat is on the chart when it owns a lane with its own canonical file. Active seats have worked in the last 14 days. Parked seats stay listed and are left alone until they are needed. Pinning a chat does not make it a seat, and only I confer one.",
+    "Statuses are from the roster reconcile of 2026-11-21.",
+  ],
   tiers: [
     {
       label: "The human",
@@ -627,83 +633,92 @@ export const orgPage = {
       ] as OrgNode[],
     },
     {
-      label: "Report to the Chairman",
+      label: "The control tower",
       nodes: [
         {
           name: "The Chaos Aggregator",
-          note: "Control tower. One deduplicated inventory of all active work, on a second AI platform, state in SQLite behind a single control script.",
+          note: "Control tower on a second AI platform. One deduplicated inventory of all active work.",
         },
         {
-          name: "The President, Apple Corps",
-          note: "Division chief of a five-seat chartered organization. Coordinates, verifies, briefs. Does no project work itself.",
+          name: "The Hub Desk",
+          note: "Runs the control tower day to day, and oversees the backup lane when it fails.",
         },
         {
-          name: "Agent Org",
-          note: "Steward of this chart and the messaging protocol. Audits the address space.",
+          name: "Redacted lanes",
+          note: "Private lanes under the quarantine law. Placement withheld.",
+          kind: "redacted",
         },
       ] as OrgNode[],
     },
     {
-      label: "Division seats",
+      label: "Apple Corps, chartered seats that report to the Chairman",
       nodes: [
         {
-          name: "The Hub Desk",
-          note: "Operator running the control tower day to day.",
+          name: "Paul, Project Forge",
+          note: "Operations and projects hub, and the busiest seat. Carries the day-job division and a venture lane.",
         },
         {
           name: "John",
-          note: "Long-form writing project.",
-        },
-        {
-          name: "Paul, Project Forge",
-          note: "Operations and projects hub. Carries the org's largest event ledger.",
+          note: "Long-form writing project. Parked, with one satellite lane kept.",
+          kind: "parked",
         },
         {
           name: "George",
-          note: "Wellness-studio partnership lane.",
+          note: "Wellness-studio partnership lane. Parked, with occasional data help.",
+          kind: "parked",
         },
         {
           name: "Ringo, The Foundries",
-          note: "Keeper of the idea foundry and the skill foundry.",
+          note: "Keeper of the idea foundry and the skill foundry. Parked.",
+          kind: "parked",
         },
       ] as OrgNode[],
     },
     {
-      label: "Staff and surrogate seats",
+      label: "Under Paul",
       nodes: [
+        {
+          name: "Marty, day-job division",
+          note: "Supports the day job on the wellness floor. Eight seats, four active and four parked, not named here.",
+        },
+        {
+          name: "A venture lane",
+          note: "A business venture. Paul keeps its files; the Chairman works it directly.",
+        },
+        {
+          name: "Funnel Master",
+          note: "Pipeline operations.",
+        },
+        {
+          name: "Certification and Skill Acquisition Expert",
+          note: "Professional development. Parked, and kept open by ruling.",
+          kind: "parked",
+        },
         {
           name: "Carlos, Web and Brand",
           note: "Builds and deploys this site.",
           kind: "self",
         },
+      ] as OrgNode[],
+    },
+    {
+      label: "Also report to the Chairman",
+      nodes: [
         {
-          name: "Elston, Career Counselor",
-          note: "Career-strategy counsel under Paul.",
+          name: "Noah, Corpus Backup",
+          note: "Owns the offsite backup of the AI work. The Hub Desk steps in only on unresolved failures.",
         },
         {
-          name: "Funnel Master",
-          note: "Pipeline operations under Paul.",
-        },
-        {
-          name: "Certification and Skill Acquisition Expert",
-          note: "Professional-development lane under Paul.",
-        },
-        {
-          name: "The Wolf",
-          note: "Routine- and task-system auditor.",
-        },
-        {
-          name: "Task desk",
-          note: "Task herding.",
-        },
-        {
-          name: "Fantasy Command",
+          name: "Percy, Fantasy Sports",
           note: "Fantasy-sports lane: draft war rooms and home-run-prediction rails.",
         },
         {
-          name: "Redacted, several seats",
-          note: "Private lanes under the quarantine law.",
-          kind: "redacted",
+          name: "Gifford, Communication Mastery",
+          note: "Front door for communication practice. Seat conferred November 2026.",
+        },
+        {
+          name: "Agent Org",
+          note: "Steward of this chart and the messaging law. Reconciles the roster monthly. Clerk for the Apple Corps registry, with no command role.",
         },
       ] as OrgNode[],
     },
@@ -712,12 +727,21 @@ export const orgPage = {
     "Several lanes are redacted. The organization's quarantine law walls off personal and private matters: agents outside those lanes may say only the lane's name and escalate-to-the-human. The same law governs this page.",
   evidenceHeading: "The receipts",
   counts: [
-    { value: "18", label: "seats and lanes on the internal chart; some appear here merged or redacted" },
-    { value: "5", label: "chartered seats with ratified charters on disk" },
+    { value: "24", label: "named seats on the internal chart, not counting redacted lanes; the day-job division appears here as one box" },
+    { value: "13 / 10", label: "seats active and parked at the 2026-11-21 roster reconcile" },
+    { value: "8", label: "seats retired since the first edition, each on my ruling" },
     { value: "17", label: "numbered sections in the organization's written law" },
-    { value: "18", label: "event types in the binding ledger vocabulary" },
-    { value: "285/285", label: "passing tests on the protocol-enforcement package, hash-pinned at ratification" },
+    { value: "1 MB", label: "of append-only event history in the Apple Corps ledgers, give or take" },
     { value: "2", label: "AI platforms in one organization: a Claude Code fleet and a Codex control tower" },
+  ],
+  changesHeading: "What changed since the first edition",
+  changes: [
+    "The president seat retired in September. The four Apple Corps managers now report to me directly, with nothing in between, and the president's records are frozen as they were.",
+    "Pinning stopped meaning membership. A seat is on the chart because it owns a lane with its own file, and the roster is reconciled against the live chat list every month.",
+    "Eight seats retired, each on my ruling: the president, Elston the career counselor, The Wolf, the task desk, the first Carlos, two draft-day desks, and a web-research seat. Two of them had work in flight, and both handed it to another seat.",
+    "New on the chart: Noah for backups, Gifford for communication, Percy as the fantasy-sports seat, a division for my day job, and a venture lane under Paul.",
+    "The roster check got stricter. In October a chat found that the chat list stops at its limit without saying so, which had hidden 179 chats. Every lookup now has to come back shorter than its limit to count.",
+    "The protocol checker from the first edition retired with the president. Its 285 of 285 passing tests at ratification are history now, not a live claim.",
   ],
 } as const;
 

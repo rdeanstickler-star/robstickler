@@ -25,14 +25,16 @@ const stripeColor: Record<Stripe, string> = {
 function Node({
   x,
   y,
-  w = 180,
-  h = 48,
+  w = 150,
+  h = 58,
   stripe,
   title,
   note,
+  note2,
   dashed = false,
-  centered = false,
+  centered = true,
   accentBorder = false,
+  parked = false,
 }: {
   x: number;
   y: number;
@@ -41,39 +43,54 @@ function Node({
   stripe: Stripe;
   title: string;
   note: string;
+  note2?: string;
   dashed?: boolean;
   centered?: boolean;
   accentBorder?: boolean;
+  parked?: boolean;
 }) {
   const tx = centered ? x + w / 2 : x + 14;
   const anchor = centered ? "middle" : "start";
   return (
-    <g>
+    <g opacity={parked ? 0.5 : 1}>
       <rect
         x={x}
         y={y}
         width={w}
         height={h}
         rx={8}
-        fill={box.fill}
-        stroke={accentBorder ? "var(--accent)" : box.stroke}
+        fill={dashed ? "none" : box.fill}
+        stroke={accentBorder ? "var(--accent)" : dashed ? "var(--muted)" : box.stroke}
         strokeWidth={accentBorder ? 1.4 : 1}
         strokeDasharray={dashed ? "5 3" : undefined}
       />
-      <rect
-        x={x + 1}
-        y={y + 1}
-        width={4}
-        height={h - 2}
-        rx={2}
-        fill={stripeColor[stripe]}
-      />
-      <text x={tx} y={y + 19} textAnchor={anchor} {...name}>
+      {dashed ? null : (
+        <rect
+          x={x + 1}
+          y={y + 1}
+          width={4}
+          height={h - 2}
+          rx={2}
+          fill={stripeColor[stripe]}
+        />
+      )}
+      <text
+        x={tx}
+        y={y + 19}
+        textAnchor={anchor}
+        {...name}
+        fill={dashed ? "var(--muted)" : name.fill}
+      >
         {title}
       </text>
       <text x={tx} y={y + 34} textAnchor={anchor} {...sub}>
         {note}
       </text>
+      {note2 ? (
+        <text x={tx} y={y + 47} textAnchor={anchor} {...sub}>
+          {note2}
+        </text>
+      ) : null}
     </g>
   );
 }
@@ -83,25 +100,36 @@ export function OrgChart() {
     <div className="overflow-x-auto border border-line bg-bg-elev p-4 md:p-6">
       <svg
         role="img"
-        aria-label="Organization chart. Rob, the Chairman, sits at the top as the sole source of command. Three branches report to him: the Chaos Aggregator control tower with the Hub Desk operating it, and under the Hub Desk a staff spine carrying The Wolf, the Task desk, and several redacted seats under the quarantine law; the President of Apple Corps over the four division seats John, Paul, George and Ringo, with Paul's four surrogate seats on a spine below Paul; and Agent Org, the protocol steward. Fantasy Command connects to the Chairman directly. Dashed boxes and lines mark placements not yet ratified, or redacted. A text version of every seat follows this chart."
+        aria-label="Organization chart, November 2026 edition. Rob, the Chairman, sits at the top as the sole source of command, and nine seats report to him directly. The Chaos Aggregator control tower, with the Hub Desk running it and redacted private lanes below. Noah, who owns the AI work backup, with the Hub Desk stepping in only on failures. The four Apple Corps seats, Paul, John, George and Ringo; the president seat between them and the Chairman retired in September 2026, and John, George and Ringo are parked. Under Paul: Marty's day-job division, a venture lane, Funnel Master, the Certification and Skill Expert, which is parked, and Carlos, which builds this site. Percy, Fantasy Sports; Gifford, Communication Mastery; and Agent Org, the chart and messaging-law steward. A box at the lower right lists the eight seats retired since the first edition. A text version of every seat follows this chart."
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1450 545"
+        viewBox="0 0 1494 545"
         className="mx-auto block h-auto min-w-[1280px] max-w-none"
       >
+        {/* Apple Corps band */}
+        <rect
+          x={340}
+          y={100}
+          width={652}
+          height={100}
+          rx={10}
+          fill="var(--accent)"
+          fillOpacity={0.05}
+          stroke="var(--accent)"
+          strokeOpacity={0.35}
+        />
+        <text x={984} y={192} textAnchor="end" fontSize={9.5} fill="var(--muted)">
+          Apple Corps &middot; chartered seats &middot; the president seat retired Sep 2026
+        </text>
+
         {/* connectors */}
         <g stroke="var(--muted)" strokeWidth={1.2} fill="none" opacity={0.8}>
-          {/* Rob to bus, bus across, drops */}
-          <path d="M645,64 V84 M170,84 H1250 M170,84 V104 M645,84 V104 M1030,84 V104" />
-          {/* CA to Hub Desk */}
-          <path d="M170,162 V200" />
-          {/* President to managers bus */}
-          <path d="M645,162 V180 M385,180 H925 M385,180 V200 M565,180 V200 M745,180 V200 M925,180 V200" />
-          {/* Paul surrogates spine */}
-          <path d="M565,252 V264 H483 V492 M483,324 H495 M483,380 H495 M483,436 H495 M483,492 H495" />
-          {/* Fantasy Command: Rob-direct, long drop to staff height */}
-          <path d="M1250,84 V324 M1250,324 H1260" />
+          {/* Rob to bus, bus across, nine drops */}
+          <path d="M666,64 V86 M99,86 H1395 M99,86 V110 M261,86 V110 M423,86 V110 M585,86 V110 M747,86 V110 M909,86 V110 M1071,86 V110 M1233,86 V110 M1395,86 V110" />
+          {/* Aggregator to Hub Desk */}
+          <path d="M99,168 V236" />
+          {/* Paul spine */}
+          <path d="M423,168 V212 H368 V504 M368,256 H380 M368,318 H380 M368,380 H380 M368,442 H380 M368,504 H380" />
         </g>
-        {/* Hub Desk staff spine, dashed = placement unconfirmed */}
         <g
           stroke="var(--muted)"
           strokeWidth={1.2}
@@ -109,23 +137,19 @@ export function OrgChart() {
           opacity={0.8}
           strokeDasharray="4 3"
         >
-          <path d="M170,252 V264 H88 V436 M88,324 H98 M88,380 H98 M88,436 H98" />
+          {/* Hub Desk to redacted lanes */}
+          <path d="M99,294 V322" />
+          {/* Hub Desk oversight of the backup lane */}
+          <path d="M174,265 H261 V168" />
         </g>
-
-        {/* edge labels */}
-        <g fontSize={9.5} fill="var(--muted)">
-          <text x={573} y={262}>
-            surrogates
-          </text>
-          <text x={1242} y={296} textAnchor="end">
-            works with the Chairman directly
-          </text>
-        </g>
+        <text x={267} y={222} fontSize={9.5} fill="var(--muted)">
+          oversees failures
+        </text>
 
         {/* Chairman */}
         <g>
           <rect
-            x={545}
+            x={566}
             y={14}
             width={200}
             height={50}
@@ -135,179 +159,59 @@ export function OrgChart() {
             stroke="var(--accent)"
             strokeWidth={1.4}
           />
-          <text x={645} y={36} textAnchor="middle" {...name} fontSize={13.5}>
+          <text x={666} y={36} textAnchor="middle" {...name} fontSize={13.5}>
             Rob, Chairman
           </text>
-          <text x={645} y={52} textAnchor="middle" {...sub}>
+          <text x={666} y={52} textAnchor="middle" {...sub}>
             sole source of command
           </text>
         </g>
 
-        {/* Tier 1 */}
-        <Node
-          x={70}
-          y={104}
-          w={200}
-          h={58}
-          stripe="hub"
-          centered
-          title="The Chaos Aggregator"
-          note="control tower, on a second AI platform"
-        />
-        <Node
-          x={545}
-          y={104}
-          w={200}
-          h={58}
-          stripe="seat"
-          centered
-          title="The President, Apple Corps"
-          note="division chief, no project work"
-        />
-        <Node
-          x={930}
-          y={104}
-          w={200}
-          h={58}
-          stripe="staff"
-          centered
-          title="Agent Org"
-          note="chart and messaging-protocol steward"
-        />
+        {/* Report to the Chairman */}
+        <Node x={24} y={110} stripe="hub" title="The Chaos Aggregator" note="control tower on a" note2="second AI platform" />
+        <Node x={186} y={110} stripe="staff" title="Noah, Corpus Backup" note="owns the offsite backup" note2="of the AI work" />
+        <Node x={348} y={110} stripe="seat" title="Paul, Project Forge" note="operations and projects" note2="hub, the busiest seat" />
+        <Node x={510} y={110} stripe="seat" parked title="John" note="long-form writing" note2="parked" />
+        <Node x={672} y={110} stripe="seat" parked title="George" note="wellness-studio lane" note2="parked, data help on call" />
+        <Node x={834} y={110} stripe="seat" parked title="Ringo, The Foundries" note="idea and skill foundries" note2="parked" />
+        <Node x={996} y={110} stripe="staff" title="Percy, Fantasy Sports" note="fantasy-sports lane" />
+        <Node x={1158} y={110} stripe="staff" title="Gifford" note="communication lane" note2="seat conferred Nov 2026" />
+        <Node x={1320} y={110} stripe="staff" title="Agent Org" note="chart and messaging-law" note2="steward, no command" />
 
-        {/* Tier 2 */}
-        <Node
-          x={70}
-          y={200}
-          w={200}
-          h={52}
-          stripe="hub"
-          centered
-          title="The Hub Desk"
-          note="runs the control tower day to day"
-        />
-        <Node
-          x={305}
-          y={200}
-          w={160}
-          h={52}
-          stripe="seat"
-          centered
-          title="John"
-          note="long-form writing project"
-        />
-        <Node
-          x={485}
-          y={200}
-          w={160}
-          h={52}
-          stripe="seat"
-          centered
-          title="Paul, Project Forge"
-          note="operations and projects hub"
-        />
-        <Node
-          x={665}
-          y={200}
-          w={160}
-          h={52}
-          stripe="seat"
-          centered
-          title="George"
-          note="wellness-studio partnership"
-        />
-        <Node
-          x={845}
-          y={200}
-          w={160}
-          h={52}
-          stripe="seat"
-          centered
-          title="Ringo, The Foundries"
-          note="the idea and skill foundries"
-        />
+        {/* Control tower */}
+        <Node x={24} y={236} stripe="hub" title="The Hub Desk" note="runs the control tower" note2="day to day" />
+        <Node x={24} y={322} stripe="staff" dashed title="Redacted lanes" note="private, quarantine law" note2="placement withheld" />
 
-        {/* Paul surrogates */}
-        <Node
-          x={495}
-          y={300}
-          stripe="staff"
-          accentBorder
-          title="Carlos, Web and Brand"
-          note="builds and deploys this site"
-        />
-        <Node
-          x={495}
-          y={356}
-          stripe="staff"
-          title="Elston, Career Counselor"
-          note="career-strategy counsel"
-        />
-        <Node
-          x={495}
-          y={412}
-          stripe="staff"
-          title="Funnel Master"
-          note="pipeline operations"
-        />
-        <Node
-          x={495}
-          y={468}
-          stripe="staff"
-          title="Certification and Skill Expert"
-          note="professional development"
-        />
+        {/* Under Paul */}
+        <Node x={380} y={230} w={210} h={52} centered={false} stripe="staff" title="Marty, day-job division" note="supports the day job" note2="8 seats: 4 active, 4 parked" />
+        <Node x={380} y={292} w={210} h={52} centered={false} stripe="staff" title="A venture lane" note="files and oversight under Paul" note2="the Chairman works it directly" />
+        <Node x={380} y={354} w={210} h={52} centered={false} stripe="staff" title="Funnel Master" note="pipeline operations" />
+        <Node x={380} y={416} w={210} h={52} centered={false} stripe="staff" parked title="Certification and Skill Expert" note="professional development" note2="parked, kept open by ruling" />
+        <Node x={380} y={478} w={210} h={52} centered={false} stripe="staff" accentBorder title="Carlos, Web and Brand" note="builds and deploys this site" />
 
-        {/* Hub Desk staff stack */}
-        <Node
-          x={98}
-          y={300}
-          stripe="staff"
-          dashed
-          title="The Wolf"
-          note="routine and task audits"
-        />
-        <Node
-          x={98}
-          y={356}
-          stripe="staff"
-          dashed
-          title="Task desk"
-          note="task herding"
-        />
+        {/* Retired since the first edition */}
         <g>
           <rect
-            x={98}
-            y={412}
-            width={180}
-            height={48}
+            x={1036}
+            y={388}
+            width={434}
+            height={142}
             rx={8}
             fill="none"
             stroke="var(--muted)"
             strokeDasharray="5 3"
           />
-          <text
-            x={112}
-            y={431}
-            fontSize={12}
-            fontWeight={600}
-            fill="var(--muted)"
-          >
-            Redacted, several seats
+          <text x={1052} y={410} fontSize={12} fontWeight={600} fill="var(--muted)">
+            Retired since the first edition: 8 seats
           </text>
-          <text x={112} y={446} {...sub}>
-            quarantine law
-          </text>
+          <g fontSize={10.5} fill="var(--muted)">
+            <text x={1052} y={432}>The President, Apple Corps &middot; Elston, Career Counselor</text>
+            <text x={1052} y={450}>The Wolf &middot; the Task desk &middot; the first Carlos</text>
+            <text x={1052} y={468}>Two draft-day desks &middot; a web-research seat</text>
+            <text x={1052} y={492}>Each on the Chairman&apos;s ruling. The two with work</text>
+            <text x={1052} y={510}>in flight handed it to another seat.</text>
+          </g>
         </g>
-
-        {/* Rob-direct lane */}
-        <Node
-          x={1260}
-          y={300}
-          stripe="staff"
-          title="Fantasy Command"
-          note="fantasy-sports lane"
-        />
       </svg>
     </div>
   );
@@ -322,7 +226,7 @@ export function OrgChartLegend() {
           style={{ borderColor: "var(--accent)" }}
         />
       ),
-      label: "chartered seat, ratified charter on disk",
+      label: "Apple Corps seat, ratified charter on disk",
     },
     {
       swatch: (
@@ -344,9 +248,18 @@ export function OrgChartLegend() {
     },
     {
       swatch: (
-        <span className="inline-block h-3.5 w-3.5 border border-dashed border-line" />
+        <span
+          className="inline-block h-3.5 w-3.5 border-l-4 bg-bg opacity-50"
+          style={{ borderColor: "var(--muted)" }}
+        />
       ),
-      label: "placement not yet ratified, or redacted",
+      label: "parked: listed, not swept",
+    },
+    {
+      swatch: (
+        <span className="inline-block h-3.5 w-3.5 border border-dashed border-muted" />
+      ),
+      label: "redacted, or retired",
     },
   ];
   return (

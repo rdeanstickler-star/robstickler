@@ -153,6 +153,15 @@ stripped and hello@ swapped, regenerated from source rather than redacted.)
 `/` `/work` `/proof` `/how-i-operate` `/studios` `/interests` `/photographs`
 `/org` — plus `/method` (unlinked, noindexed, gated on Rob). `/resume`
 redirects to the home page. `/artifacts` permanently redirects to `/proof`.
+
+**/org rules (2026-11-21).** The page is the sanitized public edition of the
+internal org chart, rebuilt from it on Rob's authorization. It never carries an
+out-of-band lane name, a session id, or the internal name of the lane-review
+sweep; the pre-deploy grep checks all three. Day-job seats appear as one box
+without their names, and the venture lane is not named. Seat statuses are dated
+to the roster reconcile they came from. Rob sees a rendered preview with the
+changes highlighted before any deploy.
+
 Doorfront was removed entirely on 2026-08-26 by Rob's ruling and is never
 reintroduced.
 
